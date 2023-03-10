@@ -1,15 +1,20 @@
-
 import 'package:flutter/material.dart';
+class EmergencyScreen extends StatefulWidget {
+  const EmergencyScreen({Key? key}) : super(key: key);
 
-class EmergencyScreen extends StatelessWidget {
+  @override
+  State<EmergencyScreen> createState() => _EmergencyScreenState();
+}
+
+class _EmergencyScreenState extends State<EmergencyScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('Ask Help hello every one'
-
-          )),
-
-
+    return Scaffold(
+      body: Center(
+        child: Container(
+          child: Text("Ask Help !!!"),
+        ),
+      ),
     );
   }
 }
