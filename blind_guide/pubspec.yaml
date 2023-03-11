@@ -48,6 +48,10 @@ dependencies:
   google_ml_vision: ^0.0.8
   audioplayers: ^3.0.1
   just_audio: ^0.9.9
+  contacts_service: ^0.6.3
+  url_launcher: ^6.1.10
+  flutter_phone_direct_caller: ^2.1.1
+  collection:
 
 
 

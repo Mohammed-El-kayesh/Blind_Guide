@@ -25,7 +25,10 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
 /////sound////
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
-  final String text = 'هذه الصفحة لللتعرف على نوع الاشياء و تجنب العوائق';
+  final String text = 'هذه الصفحة للتعرف على نوع الأشياء و تجنب العوائق';
+
+  // final FlutterTts flutterTts1 = FlutterTts();
+  // final AudioPlayer audioPlayer1 = AudioPlayer();
 
 
 
@@ -89,14 +92,19 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
     await flutterTts.setLanguage('ar-US');
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
+
   }
-
-
+  // Future<void> playobject() async {
+  //   await flutterTts.setLanguage('ar-US');
+  //   await flutterTts.setPitch(1);
+  //   await flutterTts.speak(result);
+  // }
 
   @override
   void initState() {
     loadModel().then((value) => initCamera());
     playVoiceNote();
+    // playobject();
     super.initState();
   }
 
@@ -123,11 +131,13 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
                     child: SizedBox(
                       height:100.h,
                       width: 100.w,
+
                       child: imgCamera == null
                           ?  Icon(Icons.photo_camera_front, color: Colors.lightGreenAccent, size: Dimensions.p40)
                           : AspectRatio(
                         aspectRatio: cameraController!.value.aspectRatio,
                         child: CameraPreview(cameraController!),
+
                       ),
                     ),
                   ),
