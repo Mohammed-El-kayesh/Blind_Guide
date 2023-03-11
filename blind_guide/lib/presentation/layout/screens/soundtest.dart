@@ -13,6 +13,7 @@ class _soundScreenState extends State<soundScreen> {
 
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
+  final String text = 'اهلا و مرحبا بك في تطبيق مساعد المكفوفين لاستخدام التطبيق كل ما عليك هو القيام بسحب الشاشة لليسار';
 
   @override
   void initState() {
@@ -21,32 +22,36 @@ class _soundScreenState extends State<soundScreen> {
   }
 
   Future<void> playVoiceNote() async {
-    final String text = 'Welcome to my app!';
 
-    await flutterTts.setLanguage('en-US');
+    await flutterTts.setLanguage('ar-US');
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
 
-    final audioUrl = 'https://example.com/voice_note.mp3';
-    final audioSource = ProgressiveAudioSource(Uri.parse(audioUrl));
-    await audioPlayer.setAudioSource(audioSource);
-    await audioPlayer.play();
+    // final audioUrl = 'https://example.com/voice_note.mp3';
+    // final audioSource = ProgressiveAudioSource(Uri.parse(audioUrl));
+    // await audioPlayer.setAudioSource(audioSource);
+    // await audioPlayer.play();
   }
 
-  @override
-  void dispose() {
-    audioPlayer.stop();
-    flutterTts.stop();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   audioPlayer.stop();
+  //   flutterTts.stop();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       body: Center(
-        child: Text('Hello, welcome to my app!'),
-      ),
+        child: SingleChildScrollView(
+           child: Text('$text'),
+
+              ),
+        ),
+
+
     );
   }
 }

@@ -1,7 +1,9 @@
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_ml_vision/google_ml_vision.dart';
+import 'package:just_audio/just_audio.dart';
 
 class OCRScannerScreen extends StatefulWidget {
   const OCRScannerScreen({Key? key}) : super(key: key);
@@ -14,12 +16,18 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
   late CameraController _cameraController;
   late TextRecognizer _recognizer;
   String? _recognizedText;
-
+/////sound////
+  final FlutterTts flutterTts = FlutterTts();
+  final AudioPlayer audioPlayer = AudioPlayer();
+  final String text = 'هذه الصفحة لللتعرف على النصوص و قراءتها';
   @override
   void initState() {
     super.initState();
     _initializeCamera();
     _recognizer = GoogleVision.instance.textRecognizer();
+    playVoiceNote();
+
+
   }
 
   Future<void> _initializeCamera() async {
@@ -35,6 +43,12 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
     _cameraController.dispose();
     _recognizer.close();
     super.dispose();
+  }
+
+  Future<void> playVoiceNote() async {
+    await flutterTts.setLanguage('ar-US');
+    await flutterTts.setPitch(1);
+    await flutterTts.speak(text);
   }
 
   Future<void> _scanText() async {

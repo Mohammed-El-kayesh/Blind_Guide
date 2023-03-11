@@ -3,6 +3,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tflite/tflite.dart';
 import '../../../main.dart';
@@ -21,6 +22,14 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
   String result = '';
   CameraController? cameraController;
   CameraImage? imgCamera;
+/////sound////
+  final FlutterTts flutterTts = FlutterTts();
+  final AudioPlayer audioPlayer = AudioPlayer();
+  final String text = 'هذه الصفحة لللتعرف على نوع الاشياء و تجنب العوائق';
+
+
+
+
 
   initCamera() {
     cameraController = CameraController(cameras![0], ResolutionPreset.max);
@@ -75,10 +84,19 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
       labels:Constants.objectDetectionLable_STR,
     );
   }
+  /////Sound////
+  Future<void> playVoiceNote() async {
+    await flutterTts.setLanguage('ar-US');
+    await flutterTts.setPitch(1);
+    await flutterTts.speak(text);
+  }
+
+
 
   @override
   void initState() {
     loadModel().then((value) => initCamera());
+    playVoiceNote();
     super.initState();
   }
 
