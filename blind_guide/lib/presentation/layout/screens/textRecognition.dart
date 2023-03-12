@@ -72,6 +72,7 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
     //   isCamInitialize = false;
     //   return Container();
     // }
+
     return Scaffold(
       body: isCamInitialize ? GestureDetector(
         onTap: (){_scanText();},
