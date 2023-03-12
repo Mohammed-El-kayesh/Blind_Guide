@@ -52,6 +52,10 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_phone_direct_caller: ^2.1.1
   collection:
+  sqflite: ^2.0.0+3
+  path: ^1.8.0
+
+
 
 
 

@@ -20,6 +20,7 @@ class Constants{
  static const String colorDetection_STR='Color Detection';
  static const String objectDetection_STR='Object detection';
  static const String WelcomScreen_STR='Welcome';
+ static const String HomeCalling_STR='Welcome';
  static const String objectDetectionModel_STR='assets/model.tflite';
  static const String objectDetectionLable_STR='assets/label.txt';
 }
