@@ -1,4 +1,5 @@
 
+import 'package:blind_guide/CallsSystem/makeCall.dart';
 import 'package:blind_guide/presentation/layout/screens/emergencyCalls.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
@@ -21,13 +22,17 @@ class AppCubit extends Cubit<AppState>
     Constants.objectDetection_STR,
     Constants.colorDetection_STR,
     Constants.textRecognition_STR,
-    Constants.emergencyCalls_STR];
+    Constants.emergencyCalls_STR,
+    Constants.HomeCalling_STR
+  ];
+
   final List<Widget> screensList =[
     const soundScreen(),
     ObjectDetectionScreen(),
     ColorDetectionScreen(),
     OCRScannerScreen(),
     EmergencyScreen(),
+    HomeCalling(),
   ];
 
 
