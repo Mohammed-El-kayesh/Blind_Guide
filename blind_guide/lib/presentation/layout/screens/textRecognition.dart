@@ -1,5 +1,4 @@
 
-import 'package:blind_guide/utils/constants.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -17,7 +16,6 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
   late CameraController _cameraController;
   late TextRecognizer _recognizer;
   String? _recognizedText;
-  bool isCamInitialize = false;
 /////sound////
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
@@ -25,10 +23,9 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
   @override
   void initState() {
     super.initState();
-    playVoiceNote();
     _initializeCamera();
     _recognizer = GoogleVision.instance.textRecognizer();
-
+    playVoiceNote();
 
 
   }
@@ -38,16 +35,13 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
     final firstCamera = cameras.first;
     _cameraController = CameraController(firstCamera, ResolutionPreset.high);
     await _cameraController.initialize();
-    setState(() {
-      isCamInitialize = true;
-    });
+    setState(() {});
   }
 
   @override
   void dispose() {
     _cameraController.dispose();
     _recognizer.close();
-    isCamInitialize = false;
     super.dispose();
   }
 
@@ -66,10 +60,15 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
+    if (!_cameraController.value.isInitialized) {
+      return Container();
+    }
     return Scaffold(
-      body: isCamInitialize ? GestureDetector(
+
+      body: GestureDetector(
         onTap: (){_scanText();},
         child: Column(
           children: <Widget>[
@@ -85,16 +84,6 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
                 child: Text('Click on any where in Screen'),
               ),
             ),
-          ],
-        ),
-      ) : Container(
-        color: Colors.black,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.photo_camera_front, color: Colors.lightGreenAccent, size: Dimensions.p40),
           ],
         ),
       ),
