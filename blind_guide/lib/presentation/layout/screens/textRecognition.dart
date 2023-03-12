@@ -66,6 +66,7 @@ class _OCRScannerScreenState extends State<OCRScannerScreen> {
     });
   }
 
+  
   @override
   Widget build(BuildContext context) {
     // if (!_cameraController.value.isInitialized) {
