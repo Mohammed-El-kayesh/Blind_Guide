@@ -1,3 +1,5 @@
+import 'package:blind_guide/presentation/layout/screens/textRecognition.dart';
+import 'package:blind_guide/presentation/layout/screens/welcomeScreen.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:blind_guide/presentation/layout/pageView.dart';
@@ -9,6 +11,9 @@ import 'package:flutter_offline/flutter_offline.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/appCubit.dart';
+import 'bloc/objectDetectionCubit/objectDetectionCubit.dart';
+import 'bloc/textRecognitionCubit/textRecognitionCubit.dart';
+import 'bloc/textRecognitionCubit/textRecognitionState.dart';
 List<CameraDescription>? cameras;
 
 Future<void> main() async {
@@ -26,6 +31,12 @@ class MyApp extends StatelessWidget {
         BlocProvider<AppCubit>(
           create:(context)=> AppCubit(),
         ),
+        BlocProvider<TextRecognitionCubit>(
+          create:(context)=> TextRecognitionCubit(),
+        ),
+        BlocProvider<ObjectDetectionCubit>(
+          create:(context)=> ObjectDetectionCubit(),
+        ),
       ],
       child: Sizer(
           builder: (context, orientation, deviceType) {
@@ -38,7 +49,7 @@ class MyApp extends StatelessWidget {
                   {
                     final bool connected = connectivity != ConnectivityResult.none;
                     if (connected) {
-                      return  PageViewScreen();
+                      return   const WelcomeScreen();
                     } else {
                       return const NoInternetScreen();
                     }

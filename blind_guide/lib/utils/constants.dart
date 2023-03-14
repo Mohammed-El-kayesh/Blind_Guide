@@ -11,9 +11,6 @@ class Constants{
  static const String noInternet='${baseAssetImage}no_internet.png';
  static const String baseAssetImage='assets/images/';
 
-
-
-
  static const String checkInternetConnection_STR='Please check internet connection ';
  static const String emergencyCalls_STR='Emergency Calls';
  static const String textRecognition_STR='Text Recognition';
@@ -23,6 +20,9 @@ class Constants{
  static const String HomeCalling_STR='Welcome';
  static const String objectDetectionModel_STR='assets/model.tflite';
  static const String objectDetectionLable_STR='assets/label.txt';
+
+ static const String ObjectDetectionInitialText_STR = 'تعرف على نوع الأشياء و تجنب العوائق';
+ static const String TextRecognitionInitialText_STR = 'اضغط على الشاشه لللتعرف على النص';
 }
 class Dimensions{
  static double p5 = 100.h/(100.h/5);
