@@ -17,12 +17,12 @@ class Constants{
  static const String colorDetection_STR='Color Detection';
  static const String objectDetection_STR='Object detection';
  static const String WelcomScreen_STR='Welcome';
- static const String HomeCalling_STR='Welcome';
  static const String objectDetectionModel_STR='assets/model.tflite';
  static const String objectDetectionLable_STR='assets/label.txt';
 
  static const String ObjectDetectionInitialText_STR = 'تعرف على نوع الأشياء و تجنب العوائق';
- static const String TextRecognitionInitialText_STR = 'اضغط على الشاشه لللتعرف على النص';
+ static const String TextRecognitionInitialText_STR = 'اضغط على الشاشة لللتعرف على النص';
+ static const String EmergencyCallInitialText_STR = 'شاشة مكالمات الطوارئ';
 }
 class Dimensions{
  static double p5 = 100.h/(100.h/5);

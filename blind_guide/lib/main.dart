@@ -1,8 +1,6 @@
-import 'package:blind_guide/presentation/layout/screens/textRecognition.dart';
 import 'package:blind_guide/presentation/layout/screens/welcomeScreen.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:blind_guide/presentation/layout/pageView.dart';
 import 'package:blind_guide/presentation/layout/screens/noInternetScreen.dart';
 import 'package:blind_guide/presentation/widgets/primaryText.dart';
 import 'package:blind_guide/utils/colors.dart';
@@ -13,7 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/appCubit.dart';
 import 'bloc/objectDetectionCubit/objectDetectionCubit.dart';
 import 'bloc/textRecognitionCubit/textRecognitionCubit.dart';
-import 'bloc/textRecognitionCubit/textRecognitionState.dart';
 List<CameraDescription>? cameras;
 
 Future<void> main() async {

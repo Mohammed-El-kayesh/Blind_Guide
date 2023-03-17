@@ -1,147 +1,221 @@
+import 'package:blind_guide/bloc/emergencyCallCubit/emergency_CallCubit.dart';
+import 'package:blind_guide/bloc/emergencyCallCubit/emergency_CallStates.dart';
+import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:url_launcher/url_launcher.dart';
-class EmergencyScreen extends StatefulWidget {
-  const EmergencyScreen({Key? key}) : super(key: key);
+import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 
+class EmergencyScreen extends StatefulWidget {
   @override
   State<EmergencyScreen> createState() => _EmergencyScreenState();
 }
 
 class _EmergencyScreenState extends State<EmergencyScreen> {
-  /////sound////
-  final FlutterTts flutterTts = FlutterTts();
-  final AudioPlayer audioPlayer = AudioPlayer();
-  final String text = 'هذه الصفحة لمكالمات الطوارئ وطلب المساعدة من أحد الأصدقاء حيث تحتوي على 3 أشخاص'
-      '  يمكنك الاتصال بهم من خلال الضغط أعلى الشاشة او في منتصف الشاشة او في اخر الشاشة و سيقوم التطبيق بنقلك مباشرة الى لوحة اتصال الهاتف ';
+  PhoneContact? _phoneContact;
+  FlutterTts flutterTts = FlutterTts();
 
-  Future<void> playVoiceNote() async {
-    await flutterTts.setLanguage('ar-US');
+  // Voice Initilize
+  Future<void> playVoiceNote(text) async {
+    await flutterTts.setLanguage('ar-EG');
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
   }
 
+  @override
   void initState() {
+    playVoiceNote(Constants.EmergencyCallInitialText_STR);
     super.initState();
-
-    playVoiceNote();
+  }
+  @override
+  void dispose() {
+    super.dispose();
   }
 
-  String ContactName1 = "محمد";
-  String ContactName2 = "خالد";
-  String ContactName3 = "عمرو";
 
-  final FlutterTts flutterTtsforCall1 = FlutterTts();
-  final AudioPlayer audioPlayerforCall1 = AudioPlayer();
-
-  final FlutterTts flutterTtsforCall2 = FlutterTts();
-  final AudioPlayer audioPlayerforCall2 = AudioPlayer();
-
-  final FlutterTts flutterTtsforCall3 = FlutterTts();
-  final AudioPlayer audioPlayerforCall = AudioPlayer();
-
-  Future<void> playContactName1() async {
-    await flutterTts.setLanguage('ar-US');
-    await flutterTts.setPitch(1);
-    await flutterTts.speak(ContactName1);
-  }
-
-    Future<void> playContactName2() async {
-      await flutterTts.setLanguage('ar-US');
-      await flutterTts.setPitch(1);
-      await flutterTts.speak(ContactName2);
-    }
-
-  Future<void> playContactName3() async {
-    await flutterTts.setLanguage('ar-US');
-    await flutterTts.setPitch(1);
-    await flutterTts.speak(ContactName3);
-  }
-
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        body:  Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (BuildContext context) =>
+      emergencyCallCubit()
+        ..createDatabase(),
+      child:
+      BlocConsumer<emergencyCallCubit, emergencyCallStates>(listener: (context, state) async {
+        emergencyCallCubit cubit = emergencyCallCubit.get(context);
+        await flutterTts.awaitSpeakCompletion(true);
+        if (state is emergencyCallOpenDBState) {
+          await flutterTts.speak('شاشة مكالمات الطواري');
+        }
+        Future.delayed(const Duration(seconds: 3), () async {
+          if (state is emergencyCallLoadedContacts && cubit.contacts.length != 0) {
+            print(cubit.contacts.length);
+            for (int i = 0; i < cubit.contacts.length; i++) {
+              await flutterTts.setLanguage("en-US");
+              await flutterTts.speak((i + 1).toString());
+              await flutterTts.setLanguage("ar-EG");
+              await flutterTts.speak(cubit.contacts[i]['name']);
+            }
+          }
+        });
+      }, builder: (context, state) {
+        emergencyCallCubit cubit = emergencyCallCubit.get(context);
+        return Scaffold(
+          // appBar: AppBar(
+          //   title: Text('Emergency Call'),
+          //   elevation: 0,
+          //   actions: [
+          //     // IconButton(
+          //     //   onPressed: () async {
+          //     //     if (cubit.contacts.length < 5) {
+          //     //       final PhoneContact contact =
+          //     //       await FlutterContactPicker.pickPhoneContact();
+          //     //       _phoneContact = contact;
+          //     //       cubit.insertToDatabase(
+          //     //           name: _phoneContact!.fullName ?? '---',
+          //     //           number: _phoneContact!.phoneNumber!.number ?? '*/*/*/');
+          //     //     } else {
+          //     //       await flutterTts.speak(
+          //     //           'لقد وَصَلْتا للحدى الأقصى من جهات الاتصال، من فضلك احذف واحدة لإضافة جهت اتصال جديدة');
+          //     //     }
+          //     //   },
+          //     //   icon: Icon(Icons.contacts),
+          //     // ),
+          //   ],
+          // ),
+          body: Column(
             children: [
-              SizedBox(
-                height: 20,
-              ),
-                    Expanded(
-                      child: ElevatedButton(
-
-                        onPressed: () async {
-                          playContactName1();
-
-                          const phoneNumber = '01015638555';
-                          final url = 'tel:$phoneNumber';
-                          final url2 = 'sms:$phoneNumber';
-
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            throw 'Could not launch $url';
-                          }
-                        },
-                        child: Text("اتصل ب"+'$ContactName1',
-                          style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+              if (cubit.contacts.isNotEmpty)
+                Expanded(
+                  child: InkWell(
+                    child: ListView.separated(
+                        itemBuilder: (context, index) =>
+                            ItemContact(
+                              name: cubit.contacts[index]['name'],
+                              phoneNumber: cubit.contacts[index]['number'],
+                              id: index + 1,
+                              contactID: cubit.contacts[index]['id'],
+                            ),
+                        separatorBuilder: (context, index) =>
+                            Container(
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 20,
+                              ),
+                              height: 1,
+                              width: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .width,
+                              color: Colors.grey[300],
+                            ),
+                        itemCount: cubit.contacts.length),
+                    onLongPress: () => cubit.toggleRecording(context),
+                  ),
+                ),
+              if (cubit.contacts.isEmpty)
+                Container(
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  color: Colors.amber[300],
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 20,
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 10,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        Icons.error_outline,
+                        size: 35,
                       ),
-
-                    ),
-              SizedBox(
-                height: 40,
-              ),
-                  
-              
-
-              Expanded(
-                child: ElevatedButton(
-
-                  onPressed: () async {
-                    playContactName2();
-                    const phoneNumber = '01021204207';
-                    final url = 'tel:$phoneNumber';
-
-                    if (await canLaunch(url)) {
-                      await launch(url);
-                    } else {
-                      throw 'Could not launch $url';
-                    }
-                  },
-                  child: Text("اتصل ب"+'$ContactName2',
-                    style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'No Contacts Yet! Add Some To Call',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () async {
-                    playContactName3();
-                    const phoneNumber = '01010499747';
-                    final url = 'tel:$phoneNumber';
-                    if (await canLaunch(url)) {
-                      await launch(url);
-                    } else {
-                      throw 'Could not launch $url';
-                    }
-                  },
-                  child: Text("اتصل ب"+'$ContactName3',
-                  style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-
-          ],
-      )
-
-
-
-      );
-    }
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(  onPressed: () async {
+            if (cubit.contacts.length < 5) {
+              final PhoneContact contact =
+              await FlutterContactPicker.pickPhoneContact();
+              _phoneContact = contact;
+              cubit.insertToDatabase(
+                  name: _phoneContact!.fullName ?? '---',
+                  number: _phoneContact!.phoneNumber!.number ?? '*/*/*/');
+            } else {
+              await flutterTts.speak(
+                  'لقد وَصَلْتا للحدى الأقصى من جهات الاتصال، من فضلك احذف واحدة لإضافة جهت اتصال جديدة');
+            }
+          },
+            child: Icon(Icons.contacts),),
+        );
+      }),
+    );
   }
+}
+
+class ItemContact extends StatelessWidget {
+  final int id;
+  final String name;
+  final String phoneNumber;
+  final int contactID;
+
+  const ItemContact({
+    required this.id,
+    required this.name,
+    required this.phoneNumber,
+    required this.contactID,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () async {
+        await FlutterPhoneDirectCaller.callNumber(phoneNumber);
+      },
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: Colors.teal,
+          foregroundColor: Colors.white,
+          child: Text(id.toString()),
+        ),
+        title: Text(
+          name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        subtitle: Text(
+          phoneNumber,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        trailing: IconButton(
+          onPressed: () {
+            emergencyCallCubit.get(context).deleteData(id: contactID);
+          },
+          icon: const Icon(
+            Icons.delete_outline_outlined,
+            color: Colors.redAccent,
+          ),
+        ),
+      ),
+    );
+  }
+}

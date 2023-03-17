@@ -54,6 +54,9 @@ dependencies:
   collection:
   sqflite: ^2.0.0+3
   path: ^1.8.0
+  speech_to_text: ^6.1.1
+  fluttercontactpicker: ^4.7.0
+
 
 
 
