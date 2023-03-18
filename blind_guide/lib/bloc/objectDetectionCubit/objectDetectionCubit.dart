@@ -26,8 +26,8 @@ class ObjectDetectionCubit extends Cubit<ObjectDetectionState>
   // final AudioPlayer audioPlayer1 = AudioPlayer();
 
   initCamera(mounted) {
-    cameraController!.initialize().then((value) {
-        cameraController!.startImageStream((image) {
+    cameraController.initialize().then((value) {
+        cameraController.startImageStream((image) {
           if (!mounted) {
             return;
           }

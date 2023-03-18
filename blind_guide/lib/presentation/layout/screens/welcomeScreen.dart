@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:blind_guide/presentation/layout/screens/Send%20Email.dart';
+import 'package:blind_guide/presentation/layout/screens/aboutScreen.dart';
 import 'package:blind_guide/presentation/widgets/primaryText.dart';
 import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +26,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState(){
     super.initState();
-    playVoiceNote().whenComplete(() =>Timer(const Duration(seconds: 3),()=> Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) =>  PageViewScreen()))) ,);
+    // playVoiceNote();.whenComplete(() =>Timer(const Duration(seconds: 3),()=> Navigator.pushReplacement(
+    //     context,
+    //     MaterialPageRoute(builder: (context) =>  PageViewScreen()))) ,);
 
   }
 
@@ -52,6 +54,33 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(actions: [
+        IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () => Scaffold.of(context).openDrawer(),
+        ),
+
+      ],),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(child: Text("Blind Guide"),),
+
+            ///هنضيف لوجو المشروع////////////////
+
+            ListTile(title: Text('Ask Question ?'),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>EmailScreen(),),);
+            },),
+            ListTile(title: Text('about Application '),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutUS(),),);
+              },)
+
+          ],
+        ),
+      ),
 
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: Dimensions.p25),
