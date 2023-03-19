@@ -26,9 +26,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState(){
     super.initState();
-    // playVoiceNote();.whenComplete(() =>Timer(const Duration(seconds: 3),()=> Navigator.pushReplacement(
-    //     context,
-    //     MaterialPageRoute(builder: (context) =>  PageViewScreen()))) ,);
+     playVoiceNote().whenComplete(() =>Timer(const Duration(seconds: 3),()=> Navigator.pushReplacement(
+         context,
+        MaterialPageRoute(builder: (context) =>  PageViewScreen()))) ,);
 
   }
 
@@ -54,13 +54,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
-        IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-        ),
 
-      ],),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,

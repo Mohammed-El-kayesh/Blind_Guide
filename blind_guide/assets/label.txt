@@ -1,1001 +1,1001 @@
-background
-tench
-goldfish
-great white shark
-tiger shark
-hammerhead
-electric ray
-stingray
-cock
-hen
-ostrich
-brambling
-goldfinch
-house finch
-junco
-indigo bunting
-robin
-bulbul
-jay
-magpie
-chickadee
-water ouzel
-kite
-bald eagle
-vulture
-great grey owl
-European fire salamander
-common newt
-eft
-spotted salamander
-axolotl
-bullfrog
-tree frog
-tailed frog
-loggerhead
-leatherback turtle
-mud turtle
-terrapin
-box turtle
-banded gecko
-common iguana
-American chameleon
+خلفية
+التنش سمك نهري
+ذهبية
+القرش الابيض الكبير
+نمر القرش
+المطرقة
+شعاع كهربائي
+اللادغة
+الديك
+دجاجة
+نعامة
+شجيرة
+طائر الحسون
+عصفور المنزل
+جونكو
+النيلي الرايات
+روبن
+بلبل
+جاي
+العقعق
+تشيكادي
+أوزل الماء
+طائرة ورقية
+النسر الأصلع
+نسر
+بومة رمادية كبيرة
+السمندل الناري الأوروبي
+نيوت عادي
+اليسار
+السمندل المرقط
+إبسولوتل
+الضفدع
+ضفدع الشجرة
+ضفدع الذيل
+العداء
+السلاحف الجلدية الظهر
+سلحفاة الطين
+تيرابين
+صندوق السلحفاة
+أبو بريص
+الإغوانا المشتركة
+الحرباء الأمريكية
 whiptail
 agama
-frilled lizard
-alligator lizard
-Gila monster
-green lizard
-African chameleon
-Komodo dragon
-African crocodile
-American alligator
-triceratops
-thunder snake
-ringneck snake
-hognose snake
-green snake
-king snake
-garter snake
-water snake
-vine snake
-night snake
-boa constrictor
-rock python
-Indian cobra
-green mamba
-sea snake
-horned viper
-diamondback
-sidewinder
-trilobite
-harvestman
-scorpion
-black and gold garden spider
-barn spider
-garden spider
-black widow
-tarantula
-wolf spider
-tick
-centipede
-black grouse
-ptarmigan
-ruffed grouse
-prairie chicken
-peacock
-quail
-partridge
-African grey
-macaw
-sulphur-crested cockatoo
-lorikeet
-coucal
-bee eater
-hornbill
-hummingbird
-jacamar
-toucan
-drake
-red-breasted merganser
-goose
-black swan
-tusker
-echidna
-platypus
-wallaby
-koala
-wombat
-jellyfish
-sea anemone
-brain coral
-flatworm
-nematode
-conch
-snail
-slug
-sea slug
-chiton
-chambered nautilus
-Dungeness crab
-rock crab
-fiddler crab
-king crab
-American lobster
-spiny lobster
-crayfish
-hermit crab
-isopod
-white stork
-black stork
-spoonbill
-flamingo
-little blue heron
-American egret
-bittern
-crane
-limpkin
-European gallinule
-American coot
-bustard
-ruddy turnstone
-red-backed sandpiper
-redshank
-dowitcher
-oystercatcher
-pelican
-king penguin
-albatross
-grey whale
-killer whale
-dugong
-sea lion
-Chihuahua
-Japanese spaniel
-Maltese dog
-Pekinese
-Shih-Tzu
-Blenheim spaniel
-papillon
-toy terrier
-Rhodesian ridgeback
-Afghan hound
-basset
-beagle
-bloodhound
-bluetick
-black-and-tan coonhound
-Walker hound
-English foxhound
-redbone
-borzoi
-Irish wolfhound
-Italian greyhound
-whippet
-Ibizan hound
-Norwegian elkhound
+سحلية مكشكشة
+سحلية التمساح
+جيلا الوحش
+سحلية خضراء
+الحرباء الأفريقية
+تنين كومودو
+التمساح الأفريقي
+التمساح الأمريكي
+ترايسيراتوبس
+ثعبان الرعد
+ثعبان
+ثعبان hognose
+ثعبان الأخضر
+ملك الثعابين
+ثعبان الرباط
+افعى الماء
+ثعبان كرمة
+ثعبان الليل
+أفعى المضيقة
+ثعبان الصخور
+الكوبرا الهندية
+مامبا الخضراء
+افعى البحر
+أفعى مقرن
+دياموندباك
+جانب جانبي
+ثلاثية الفصوص
+حصاد
+برج العقرب
+عنكبوت الحديقة الأسود والذهبي
+عنكبوت الحظيرة
+عنكبوت الحديقة
+الارملة السوداء
+الرتيلاء
+عنكبوت الذئب
+القراد
+حريش
+احتج أسود
+بترميجان
+احتج منزعج
+دجاج البراري
+الطاووس
+طائر السمان
+الحجل
+الرمادي الأفريقي
+الببغاء
+الكوكاتو ذو قمة الكبريت
+لوريكيت
+كسول
+آكل النحل
+طائر البوقير الأسود
+الطائر الطنان
+جاكامار
+الطوقان
+دريك
+Merganser أحمر الصدر
+أوزة
+البجعة السوداء
+ناب
+إيكيدنا
+خلد الماء
+والابي
+كوالا
+الومبت
+قناديل البحر
+شقائق النعمان البحرية
+مرجان الدماغ
+دودة مفلطحة
+الديدان الخيطية
+محارة
+حلزون
+سبيكة
+سبيكة البحر
+الكيتون
+نوتيلوس غرفة
+سلطعون الروث
+سلطعون الصخور
+العابث السلطعون
+ملك السلطعون
+جراد البحر الأمريكي
+جراد البحر الشوكي
+جراد البحر
+سلطعون الناسك
+متساوي الأرجل
+اللقلق الأبيض
+اللقلق الأسود
+الملاعقي طائر أبو ملعقة
+فلامنغو
+مالك الحزين الأزرق الصغير
+البلشون الأسود الأمريكي
+المر
+رافعة
+ليمبكين
+غالينول أوروبية
+طائر أمريكي
+الحبارى
+رودي Turnstone
+طائر الرمل الأحمر المدعوم
+ريدشانك
+دويتشر
+المحار
+بجع
+الملك البطريق
+القطرس
+الحوت الرمادي
+الحوت القاتل
+الأطوم
+فقمة البحر
+شيواوا
+الذليل الياباني
+كلب مالطي
+البكيني أحد أبناء بكين
+شيه تزو
+بلينهايم الذليل
+بابيلون
+لعبة جحر
+روديسيا ريدجباك
+كلب أفغاني
+الباسط
+بيجل
+الكلب البوليسي
+بلويتيك
+كونهوند أسود وتان
+كلب ووكر
+كلب الثعالب الإنجليزية
+عظم أحمر
+بورزوي
+Wolfhound الايرلندية
+السلوقي الإيطالي
+السوط
+كلب إيبيزان
+النرويجية الخوند
 otterhound
-Saluki
-Scottish deerhound
-Weimaraner
-Staffordshire bullterrier
-American Staffordshire terrier
-Bedlington terrier
-Border terrier
-Kerry blue terrier
-Irish terrier
-Norfolk terrier
-Norwich terrier
-Yorkshire terrier
-wire-haired fox terrier
-Lakeland terrier
-Sealyham terrier
-Airedale
-cairn
-Australian terrier
-Dandie Dinmont
-Boston bull
-miniature schnauzer
-giant schnauzer
-standard schnauzer
-Scotch terrier
-Tibetan terrier
-silky terrier
-soft-coated wheaten terrier
-West Highland white terrier
-Lhasa
-flat-coated retriever
-curly-coated retriever
-golden retriever
-Labrador retriever
-Chesapeake Bay retriever
-German short-haired pointer
-vizsla
-English setter
-Irish setter
-Gordon setter
-Brittany spaniel
-clumber
-English springer
-Welsh springer spaniel
-cocker spaniel
-Sussex spaniel
-Irish water spaniel
+كلب سلوقي
+كلب الغزلان الاسكتلندي
+فايمارانير
+ستافوردشاير جحر الثور
+جحر ستافوردشاير الأمريكي
+بيدلينجتون جحر
+جحر الحدود
+كيري بلو ترير
+جحر إيرلندي
+نورفولك جحر
+نورويتش جحر
+يوركشاير جحر
+جحر الثعلب ذو الشعر السلكي
+جحر ليكلاند
+جحر سيليهام
+إيرديل
+ركام من حجارة
+جحر الاسترالي
+داندي دينمونت
+بوسطن بول
+مصغرة سنوزر
+شنوزر عملاق
+شنوزر قياسي
+سكوتش جحر
+جحر التبت
+جحر حريري
+جحر القمح المغلفة لينة
+ويست هايلاند جحر أبيض
+لاسا
+المسترد المغلفة مسطحة
+المسترد مجعد المغلفة
+المسترد الذهبي
+المكتشف لابردور
+مسترد خليج تشيسابيك
+مؤشر قصير الشعر الألماني
+فيزلا
+واضع اللغة الإنجليزية
+المؤسس الأيرلندى
+جوردون واضع
+بريتاني الذليل
+كلمبر
+سبرينغر اللغة الإنجليزية
+الذليل الويلزي
+دلل الذليل
+الذليل ساسكس
+ذليل الماء الأيرلندي
 kuvasz
-schipperke
+شيبركي
 groenendael
-malinois
-briard
-kelpie
-komondor
-Old English sheepdog
-Shetland sheepdog
-collie
-Border collie
+مالينوي
+بريارد
+الكالب جان بحري
+كوموندور
+كلب الراعي الإنجليزي القديم
+شتلاند كلب الراعي
+كولي
+كولي الحدود
 Bouvier des Flandres
-Rottweiler
-German shepherd
-Doberman
-miniature pinscher
-Greater Swiss Mountain dog
-Bernese mountain dog
-Appenzeller
-EntleBucher
-boxer
-bull mastiff
-Tibetan mastiff
-French bulldog
-Great Dane
-Saint Bernard
-Eskimo dog
-malamute
-Siberian husky
-dalmatian
-affenpinscher
-basenji
-pug
-Leonberg
-Newfoundland
-Great Pyrenees
+روتويللر
+الراعي الألماني
+دوبيرمان
+بينشر مصغرة
+أكبر كلب سويسري ماونتن
+الكلب جبل بيرن
+أبينزيلر
+إنتلي بووير
+ملاكم
+كلب الدرواس الثور
+نوع قديم من سلالات الكلاب القديمه التيبينيه
+البلدغ الفرنسي
+الدانماركي العظيم
+سانت برنارد
+كلب الأسكيمو
+ملاموت
+بحة سيبيرية
+الدلماسية
+Affenpinscher
+باسنجي
+الصلصال
+ليونبرج
+نيوفاوندلاند
+جبال البرانس الكبرى
 Samoyed
-Pomeranian
-chow
-keeshond
-Brabancon griffon
-Pembroke
-Cardigan
-toy poodle
-miniature poodle
-standard poodle
-Mexican hairless
-timber wolf
-white wolf
-red wolf
-coyote
-dingo
-dhole
-African hunting dog
-hyena
-red fox
-kit fox
-Arctic fox
-grey fox
-tabby
-tiger cat
-Persian cat
-Siamese cat
-Egyptian cat
-cougar
-lynx
-leopard
-snow leopard
-jaguar
-lion
-tiger
-cheetah
-brown bear
-American black bear
-ice bear
-sloth bear
-mongoose
-meerkat
-tiger beetle
-ladybug
-ground beetle
-long-horned beetle
-leaf beetle
-dung beetle
-rhinoceros beetle
-weevil
-fly
-bee
-ant
-grasshopper
-cricket
-walking stick
-cockroach
-mantis
-cicada
-leafhopper
-lacewing
-dragonfly
-damselfly
-admiral
-ringlet
-monarch
-cabbage butterfly
-sulphur butterfly
-lycaenid
-starfish
-sea urchin
-sea cucumber
-wood rabbit
-hare
-Angora
-hamster
-porcupine
-fox squirrel
-marmot
-beaver
-guinea pig
-sorrel
-zebra
-hog
-wild boar
-warthog
-hippopotamus
-ox
-water buffalo
-bison
-ram
-bighorn
-ibex
+كلب صغير طويل الشعر
+تشاو
+كيشوند
+برابانكون غريفون
+بيمبروك
+كارديجان
+لعبة كلب
+كلب صغير
+القلطي القياسي
+أصلع مكسيكي
+مستذئب
+الذئب الأبيض
+ذئب احمر
+ذئب امريكى - كايوتى
+الدنغو
+فتحة
+كلب الصيد الأفريقي
+ضبع
+ثعلب احمر
+عدة الثعلب
+الثعلب في القطب الشمالي
+الثعلب الرمادي
+مبرقع
+القط النمر
+قط فارسي
+قط سيامي
+قط مصري
+أسد امريكي
+حيوان الوشق
+فهد
+نمر الثلج
+جاكوار
+أسد
+نمر
+الفهد
+دب بنى
+الدب الأسود الأمريكي
+الدب الجليد
+دب الكسل
+النمس
+ميركات
+خنفساء النمر
+دعسوقة
+خنفساء الأرض
+خنفساء طويلة القرون
+خنفساء الأوراق
+خنفساء الروث
+خنفساء وحيد القرن
+سوسة
+يطير
+نحلة
+نملة
+الجراد
+كريكيت
+عصا المشي
+صرصور
+فرس النبي
+الزيز
+نطاط الأوراق
+الدانتيل
+اليعسوب
+دامسيلف
+أميرال
+حليقة
+العاهل
+فراشة الملفوف
+فراشة الكبريت
+ليكاينيد
+نجم البحر
+بحر يورتشين
+خيار البحر
+أرنب الخشب
+أرنبة
+الأنجورا
+الهامستر
+النيص
+السنجاب الثعلب
+الغرير
+سمور
+خنزير غينيا
+حميض
+الحمار الوحشي
+خنزير
+خنزير بري
+الخنزير
+فرس نهر
+ثور
+جاموس الماء
+الثور
+كبش
+قرن كبير
+وعل
 hartebeest
-impala
-gazelle
-Arabian camel
-llama
-weasel
-mink
-polecat
-black-footed ferret
-otter
-skunk
-badger
-armadillo
-three-toed sloth
-orangutan
-gorilla
-chimpanzee
-gibbon
-siamang
-guenon
-patas
-baboon
-macaque
-langur
-colobus
-proboscis monkey
-marmoset
-capuchin
-howler monkey
-titi
-spider monkey
-squirrel monkey
-Madagascar cat
-indri
-Indian elephant
-African elephant
-lesser panda
-giant panda
-barracouta
-eel
-coho
-rock beauty
-anemone fish
-sturgeon
-gar
-lionfish
-puffer
-abacus
-abaya
-academic gown
-accordion
-acoustic guitar
-aircraft carrier
-airliner
-airship
-altar
-ambulance
-amphibian
-analog clock
-apiary
-apron
-ashcan
-assault rifle
-backpack
-bakery
-balance beam
-balloon
-ballpoint
-Band Aid
-banjo
-bannister
-barbell
-barber chair
-barbershop
-barn
-barometer
-barrel
-barrow
-baseball
-basketball
-bassinet
-bassoon
-bathing cap
-bath towel
-bathtub
-beach wagon
-beacon
-beaker
-bearskin
-beer bottle
-beer glass
-bell cote
-bib
-bicycle-built-for-two
-bikini
-binder
-binoculars
-birdhouse
-boathouse
-bobsled
-bolo tie
-bonnet
-bookcase
-bookshop
-bottlecap
-bow
-bow tie
-brass
-brassiere
-breakwater
-breastplate
-broom
-bucket
-buckle
-bulletproof vest
-bullet train
-butcher shop
-cab
-caldron
-candle
-cannon
-canoe
-can opener
-cardigan
-car mirror
-carousel
-carpenter's kit
-carton
-car wheel
-cash machine
-cassette
-cassette player
-castle
-catamaran
-CD player
-cello
-cellular telephone
-chain
-chainlink fence
-chain mail
-chain saw
-chest
-chiffonier
-chime
-china cabinet
-Christmas stocking
-church
-cinema
-cleaver
-cliff dwelling
-cloak
-clog
-cocktail shaker
-coffee mug
-coffeepot
-coil
-combination lock
-computer keyboard
-confectionery
-container ship
-convertible
-corkscrew
-cornet
-cowboy boot
-cowboy hat
-cradle
-crane
-crash helmet
-crate
-crib
-Crock Pot
-croquet ball
-crutch
-cuirass
-dam
-desk
-desktop computer
-dial telephone
-diaper
-digital clock
-digital watch
-dining table
-dishrag
-dishwasher
-disk brake
-dock
-dogsled
-dome
-doormat
-drilling platform
-drum
-drumstick
-dumbbell
-Dutch oven
-electric fan
-electric guitar
-electric locomotive
-entertainment center
-envelope
-espresso maker
-face powder
-feather boa
-file
-fireboat
-fire engine
-fire screen
-flagpole
-flute
-folding chair
-football helmet
-forklift
-fountain
-fountain pen
-four-poster
-freight car
-French horn
-frying pan
-fur coat
-garbage truck
-gasmask
-gas pump
-goblet
-go-kart
-golf ball
-golfcart
-gondola
-gong
-gown
-grand piano
-greenhouse
-grille
-grocery store
-guillotine
-hair slide
-hair spray
-half track
-hammer
-hamper
-hand blower
-hand-held computer
-handkerchief
-hard disc
-harmonica
-harp
-harvester
-hatchet
-holster
-home theater
-honeycomb
-hook
-hoopskirt
-horizontal bar
-horse cart
-hourglass
-iPod
-iron
-jack-o'-lantern
-jean
-jeep
-jersey
-jigsaw puzzle
-jinrikisha
-joystick
-kimono
-knee pad
-knot
-lab coat
-ladle
-lampshade
-laptop
-lawn mower
-lens cap
-letter opener
-library
-lifeboat
-lighter
-limousine
-liner
-lipstick
-Loafer
-lotion
-loudspeaker
-loupe
-lumbermill
-magnetic compass
-mailbag
-mailbox
-maillot
-maillot
-manhole cover
-maraca
-marimba
-mask
-matchstick
-maypole
-maze
-measuring cup
-medicine chest
-megalith
-microphone
-microwave
-military uniform
-milk can
-minibus
-miniskirt
-minivan
-missile
-mitten
-mixing bowl
-mobile home
-Model T
-modem
-monastery
-monitor
-moped
-mortar
-mortarboard
-mosque
-mosquito net
-motor scooter
-mountain bike
-mountain tent
-mouse
-mousetrap
-moving van
-muzzle
-nail
-neck brace
-necklace
-nipple
-notebook
-obelisk
-oboe
-ocarina
-odometer
-oil filter
-organ
-oscilloscope
-overskirt
-oxcart
-oxygen mask
-packet
-paddle
-paddlewheel
-padlock
-paintbrush
-pajama
-palace
-panpipe
-paper towel
-parachute
-parallel bars
-park bench
-parking meter
-passenger car
-patio
-pay-phone
-pedestal
-pencil box
-pencil sharpener
-perfume
-Petri dish
-photocopier
-pick
-pickelhaube
-picket fence
-pickup
-pier
-piggy bank
-pill bottle
-pillow
-ping-pong ball
-pinwheel
-pirate
-pitcher
-plane
-planetarium
-plastic bag
-plate rack
-plow
-plunger
-Polaroid camera
-pole
-police van
-poncho
-pool table
-pop bottle
-pot
-potter's wheel
-power drill
-prayer rug
-printer
-prison
-projectile
-projector
-puck
-punching bag
-purse
-quill
-quilt
-racer
-racket
-radiator
-radio
-radio telescope
-rain barrel
-recreational vehicle
-reel
-reflex camera
-refrigerator
-remote control
-restaurant
-revolver
-rifle
-rocking chair
-rotisserie
-rubber eraser
-rugby ball
-rule
-running shoe
-safe
-safety pin
-saltshaker
-sandal
-sarong
-sax
-scabbard
-scale
-school bus
-schooner
-scoreboard
-screen
-screw
-screwdriver
-seat belt
-sewing machine
-shield
-shoe shop
-shoji
-shopping basket
-shopping cart
-shovel
-shower cap
-shower curtain
-ski
-ski mask
-sleeping bag
-slide rule
-sliding door
-slot
-snorkel
-snowmobile
-snowplow
-soap dispenser
-soccer ball
-sock
-solar dish
-sombrero
-soup bowl
-space bar
-space heater
-space shuttle
-spatula
-speedboat
-spider web
-spindle
-sports car
-spotlight
-stage
-steam locomotive
-steel arch bridge
-steel drum
-stethoscope
-stole
-stone wall
-stopwatch
-stove
-strainer
-streetcar
-stretcher
-studio couch
-stupa
-submarine
-suit
-sundial
-sunglass
-sunglasses
-sunscreen
-suspension bridge
-swab
-sweatshirt
-swimming trunks
-swing
-switch
-syringe
-table lamp
-tank
-tape player
-teapot
-teddy
-television
-tennis ball
-thatch
-theater curtain
-thimble
-thresher
-throne
-tile roof
-toaster
-tobacco shop
-toilet seat
-torch
-totem pole
-tow truck
-toyshop
-tractor
-trailer truck
-tray
-trench coat
-tricycle
-trimaran
-tripod
-triumphal arch
-trolleybus
-trombone
-tub
-turnstile
-typewriter keyboard
-umbrella
-unicycle
-upright
-vacuum
-vase
-vault
-velvet
-vending machine
-vestment
-viaduct
-violin
-volleyball
-waffle iron
-wall clock
-wallet
-wardrobe
-warplane
-washbasin
-washer
-water bottle
-water jug
-water tower
-whiskey jug
-whistle
-wig
-window screen
-window shade
-Windsor tie
-wine bottle
-wing
-wok
-wooden spoon
-wool
-worm fence
-wreck
-yawl
-yurt
-web site
-comic book
-crossword puzzle
-street sign
-traffic light
-book jacket
-menu
-plate
-guacamole
-consomme
-hot pot
-trifle
-ice cream
-ice lolly
-French loaf
-bagel
-pretzel
-cheeseburger
-hotdog
-mashed potato
-head cabbage
-broccoli
-cauliflower
-zucchini
-spaghetti squash
-acorn squash
-butternut squash
-cucumber
-artichoke
-bell pepper
-cardoon
-mushroom
-Granny Smith
-strawberry
-orange
-lemon
-fig
-pineapple
-banana
-jackfruit
-custard apple
-pomegranate
-hay
-carbonara
-chocolate sauce
-dough
-meat loaf
-pizza
-potpie
-burrito
-red wine
-espresso
-cup
-eggnog
+إمبالا
+غزال
+الجمل العربي
+اللاما
+ابن عرس
+المنك
+بوليكات
+الأسود، فوتد، فيريت
+قندس
+الظربان
+الغرير
+أرماديلو
+كسل ثلاثي الأصابع
+انسان الغابة
+غوريلا
+الشمبانزي
+جيبون
+سيامانغ
+جينون
+باتاس
+بابون
+المكاك
+لانجور
+كولوبوس
+قرد خرطوم
+القشة قرد أميركي
+كابوتشين
+عواء القرد
+تيتي
+القرد العنكبوت
+قرد السنجاب
+قط مدغشقر
+إندري
+الفيل الهندي
+فيل أفريقي
+أقل الباندا
+باندا ضخمة
+باراكوتا
+الجريث
+كوهو
+جمال الصخور
+سمك شقائق النعمان
+سمك الحفش
+غار
+سمكة الأسد
+البخاخ
+طبلية تاج
+عباية
+ثوب أكاديمي
+الأكورديون
+الغيتار الصوتي
+حاملة طائرات
+طائرة
+منطاد
+مذبح
+سياره اسعاف
+البرمائيات
+ساعة عقارب
+المنحل
+المريلة
+سلة قمامة
+بندقية
+حقيبة ظهر
+مخبز
+عارضة التوازن
+بالون
+قلم حبر جاف
+إسعافات أولية
+البانجو
+درابزين
+الحديد
+كرسي الحلاق
+صالون حلاقة
+إسطبل
+بارومتر
+برميل
+رابية
+البيسبول
+كرة سلة
+سرير
+باسون
+قبعة الاستحمام
+منشفة حمام
+حوض الاستحمام
+عربة الشاطئ
+منارة
+دورق
+جلد الدب
+قنينة بيرة
+زجاج البيرة
+ساحل الجرس
+مريلة
+دراجة مُصممة لشخصين
+بيكيني
+الموثق
+المناظير
+بيردهاوس
+مرفأ
+مزلقة
+ربطة عنق بولو
+غطاء محرك السيارة
+خزانة الكتب
+مكتبة
+غطاء زجاجة
+قَوس
+ربطة القوس
+نحاس
+حمالة
+حائل الأمواج
+درع
+مكنسة
+دلو
+انبعاج
+سترة مضادة للرصاص
+قطار سريع
+محل القصاب
+سيارة أجرة
+مرجل
+شمعة
+مدفع
+قارب
+فتاحة علب
+كارديجان
+مرآة السيارة
+دائري
+عدة نجار
+كرتون
+عجلة السيارة
+آلة النقود
+كاسيت
+مشغل كاسيت
+قلعة
+طوف
+مشغل أقراص ليزرية
+التشيلو
+هاتف محمول
+سلسلة
+سلسلة ربط السور
+سلسلة البريد
+المنشار
+صدر
+الشيفونية خزانة
+تتناغم
+مجلس الوزراء الصينى
+جورب عيد الميلاد
+كنيسة
+سينما
+ساطور
+مسكن الجرف
+عباءة
+تسد
+كوكتيل شاكر
+كوب من القهوة
+وعاء القهوة
+لفه
+قفل بالرمز
+لوحة مفاتيح كمبيوتر
+الحلويات
+سفينة شحن
+قابل للتحويل
+المفتاح
+البوق
+حذاء رعاة البقر
+قبعة رعاة البقر
+مهد الحضارة
+رافعة
+تحطم خوذة
+قفص
+سرير
+وعاء من الفخار
+كرة الكروكيه
+عكاز
+درع
+سد
+مكتب
+كمبيوتر سطح المكتب
+الاتصال الهاتفي
+حفاضات
+ساعة رقمية
+ساعة رقمية
+طاولة الطعام
+اطباق
+غسالة الأواني
+قرص الفرامل
+الرصيف
+كلب مزلقة
+قبة
+ممسحة
+منصة حفر
+طبل
+عصا الطبل
+الدمبل
+فرن هولندي
+مروحة كهربائية
+الجيتار الكهربائي
+قاطرة كهربائية
+مركز ترفيهي
+ظرف
+صانع اسبريسو
+بودرة الوجه
+أفعى ريشة
+ملف
+قارب ناري
+محرك ناري
+شاشة النار
+سارية العلم
+الفلوت
+كرسي ينطوي
+خوذة كرة القدم
+رافعة شوكية
+نافورة
+قلم حبر
+أربعة ملصق
+سيارة الشحن
+البوق الفرنسي
+قدر القلي
+معطف فرو
+شاحنة النفايات
+قناع غاز
+مضخة غاز
+كأس
+سيارة سباق صغيرة
+كرة الغولف
+عربة جولف
+جندول
+غونغ
+ثوب
+بيانو كبير
+دفيئة
+مصبغة
+محل بقالة
+مقصلة
+مشبك الشعر
+رذاذ الشعر
+نصف مسار
+شاكوش
+عرقلة
+منفاخ يدوي
+كمبيوتر محمول باليد
+منديل
+قرص صلب
+هارمونيكا
+القيثارة
+حصاد
+الأحقاد
+الحافظة
+مسرح منزلي
+خلية النحل
+خطاف
+التنورة المطوقة
+عارضة أفقية
+عربة حصان
+الساعة الرملية
+آي بود
+حديد
+جاك فانوس
+جان
+جيب
+جيرسي
+أحجية جقسو
+جينريكيشا
+عصا التحكم
+كيمونو
+وسادة في الركبة
+عقدة
+معطف المختبر
+مغرفة
+عاكس الضوء
+حاسوب محمول
+جزازة العشب
+غطاء العدسة
+فتحت الرسالة
+مكتبة
+قارب نجاة
+ولاعة
+ليموزين
+بطانة
+أحمر الشفاه
+الكسول
+غسول
+مكبر الصوت
+العدسة المكبرة
+طاحونة الخشب
+بوصلة مغناطيسية
+حقيبة البريد
+صندوق بريد
+مايوه
+مايوه
+غطاء فتحة
+ماراكا
+ماريمبا
+قناع
+عود ثقاب
+قدبولي
+متاهة
+كوب القياس
+الصدر الطب
+المغليث حجر ضخم
+ميكروفون
+الميكروويف
+الزي العسكري
+علبة حليب
+حافلة صغيرة
+تنورة قصيرة
+ميني فان
+صاروخ
+القفاز
+وعاء الخلط
+منزل متنقل
+الموديل ت
+مودم
+ديرصومعة
+شاشة
+الدراجة
+مونة الاسمنت
+مجلس الهاون
+مسجد
+ناموسية
+سكوتر
+دراجة جبلية
+خيمة جبلية
+الفأر
+مصيدة فئران
+الانتقال فان
+كمامة
+مسمار
+دعامة للعنق
+قلادة
+حلمة الثدي
+دفتر
+مسلة
+المزمار
+الأكرينا
+عداد المسافات
+مصفاة النفط
+عضو
+الذبذبات
+التنورة
+عربة ثور
+قناع الأكسجين
+رزمة
+مجداف
+نواعير
+قفل
+فرشاة الرسم
+بيجامة
+قصر
+بانبي
+منشفة ورقية
+المظلة
+قضبان متوازية
+مقعد الحديقة
+عداد موقف السيارات
+سيارة الركاب
+فناء
+هاتف عمومي
+قاعدة التمثال
+علبة اقلام الرصاص
+مبرأة
+عطر
+طبق بتري
+آلة تصوير
+يختار
+مخلل
+سياج خشبي
+يلتقط
+رصيف بحري
+مصرف خنزيري
+زجاجة حبوب دواء
+وسادة
+كرة بينج بونج
+المروحة
+القرصان
+جرة
+طائرة
+القبة السماوية
+حقيبة بلاستيكية
+راك الصحون
+محراث
+الغطاس
+كاميرا بولارويد
+عمود
+سيارة الشرطة
+المعطف
+طاولة بلياردو
+زجاجة البوب
+وعاء
+عجلة الخزاف
+حافر كهربائي
+سجادة صلاة
+طابعة
+سجن
+قذيفة
+كشاف ضوئي
+عفريت
+كيس ملاكمة
+حافِظَة
+ريشة
+لحاف
+متسابق
+مضرب تنس
+المشعاع
+مذياع
+تلسكوب راديو
+برميل المطر
+سيارة ترفيهية
+بكرة
+الكاميرا العاكسة
+ثلاجة
+جهاز التحكم
+مطعم
+مسدس
+بندقية
+كرسي هزاز
+المشواة
+ممحاة مطاطية
+كرة الرجبي
+قاعدة
+حذاء الجري
+آمن
+صمام الأمان
+مملح
+صندل
+سارونج
+ساكس
+غمد
+حجم
+باص المدرسة
+مركب شراعي
+لوحة الدرجات
+شاشة
+أفسد
+مفك براغي
+حزام المقعد
+ماكينة الخياطة
+درع
+متجر الأحذية
+شوجي
+سلة التسوق
+عربة التسوق
+مجرفة
+قبعة استحمام
+ستارة الحمام
+تزلج
+قناع تزلج
+حقيبة النوم
+مسطره منزلقه
+باب جرار
+فتحة
+اشنركل
+زحافة جليد
+كاشطة الثلج
+موزع الصابون
+كرة القدم
+جورب
+طبق شمسي
+سمبريرو
+صحن حساء
+شريط الفضاء
+سخان الفضاء
+مركبة فضائية
+الملعقة المسطحة
+قارب سريع
+الشبكه العنكبوتيه
+مغزل
+سيارة رياضية
+بقعة ضوء
+منصة
+قاطرة بخارية
+جسر القوس الصلب
+طبل فولاذي
+سماعة الطبيب
+نهب
+حائط حجارة
+ساعة التوقيف
+موقد
+مصفاة
+الترام
+نقالة
+أريكة الاستوديو
+ستوبا
+غواصة
+بدلة
+مزولة
+عدسة مكبرة
+نظارة شمسيه
+كريم واقي من الشمس
+جسر معلق
+مسحة
+قميص من النوع الثقيل
+سراويل السباحة
+يتأرجح
+يُحوّل
+حقنة
+مصباح الطاولة
+خزان
+مسجل لأشرطة
+ابريق الشاي
+دمية
+التلفاز
+كرة التنس
+القش
+ستارة المسرح
+كشتبان
+دراس
+عرش
+سقف القرميد
+محمصة
+محل تبغ
+مقعد المرحاض
+شعلة
+قطب الطوطم
+سحب الشاحنة
+توي شوب
+جرار زراعى
+مقطورة شاحنة
+صينية
+معطف الخندق
+دراجة ثلاثية العجلات
+تريماران
+حامل ثلاثي القوائم
+قوس النصر
+ترولي باص
+الترومبون
+حوض
+الباب الدوار
+لوحة مفاتيح الآلة الكاتبة
+مظلة
+الدراجة الهوائية الأحادية العجلة
+تستقيم
+مكنسة
+مزهرية
+قبو
+المخمل
+آلة للبيع
+ملابس
+جسر
+كمان
+الكرة الطائرة
+محمصة الوفل
+ساعة حائط
+محفظة
+خزانة الملابس
+طائرة حربية
+مغسلة
+غسالة
+زجاجة ماء
+إبريق الماء
+برج الماء
+إبريق ويسكي
+صافرة
+شعر مستعار
+نافذة الشاشة
+ظل النافذة
+ربطة عنق وندسور
+زجاجة نبيذ
+جناح
+ووك
+ملعقة خشبية
+صوف
+دودة السياج
+حطام سفينة
+اليول
+يورت
+موقع إلكتروني
+كتاب الشخصيات
+كلمات متقاطعة
+علامة الشارع
+إشارة المرور
+سترة كتاب
+قائمة طعام
+طبق
+جواكامولي
+تستهلك
+وعاء ساخن
+بسيط
+بوظة
+بوظة اسكيمو
+رغيف الفرنسية
+الخبز
+المملح
+تشيز برجر
+نقانق
+البطاطا المهروسة
+ملفوف الرأس
+بروكلي
+قرنبيط
+كوسة
+الاسكواش السباغيتي
+بلوط الاسكواش
+الجوز الاسكواش
+خيار
+خرشوف
+فلفل حلو
+كاردون
+فطر
+جراني سميث
+الفراولة
+البرتقالي
+ليمون
+تين
+أناناس
+موز
+الكاكايا
+تفاح الكسترد
+رمان
+تبن
+كاربونارا
+صلصة الشوكولا
+عجين
+رغيف لحم
+بيتزا
+بوتبي
+بوريتو
+خمر أحمر
+إسبرسو
+كوب
+شراب البيض
 alp
-bubble
-cliff
-coral reef
-geyser
-lakeside
-promontory
-sandbar
-seashore
-valley
-volcano
-ballplayer
-groom
-scuba diver
-rapeseed
-daisy
-yellow lady's slipper
-corn
-acorn
-hip
-buckeye
-coral fungus
-agaric
-gyromitra
-stinkhorn
-earthstar
-hen-of-the-woods
-bolete
-ear
-toilet tissue
+فقاعة
+جرف
+شعاب مرجانية
+السخان
+البحيرة
+رعن
+رملي
+شاطئ البحر
+الوادي
+بركان
+لاعب الكرة
+زوج
+غواص
+بذور اللفت
+ديزي
+شبشب سيدة صفراء
+حبوب ذرة
+بلوط
+خاصرة
+باكاي
+فطر المرجان
+غاريق
+جيروميترا
+النتن
+ايرث ستار
+دجاجة من الغابة
+بوليت
+أذن
+مناديل الحمام الورقية

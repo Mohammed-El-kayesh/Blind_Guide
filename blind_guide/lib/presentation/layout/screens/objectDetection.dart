@@ -1,13 +1,11 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_tts/flutter_tts.dart';
-import 'package:just_audio/just_audio.dart';
+
 import 'package:sizer/sizer.dart';
 import 'package:tflite/tflite.dart';
 import '../../../bloc/objectDetectionCubit/objectDetectionCubit.dart';
 import '../../../bloc/objectDetectionCubit/objectDetectionState.dart';
-import '../../../main.dart';
 import '../../../utils/constants.dart';
 
 
@@ -20,18 +18,16 @@ class ObjectDetectionScreen extends StatefulWidget {
 
 class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
 
-  // Future<void> playobject() async {
-  //   await flutterTts.setLanguage('ar-US');
-  //   await flutterTts.setPitch(1);
-  //   await flutterTts.speak(result);
-  // }
 
+
+  final String text = 'هذه الصفحة للتعرف على نوع الأشياء و تجنب العوائق';
   @override
   void initState() {
     var cubit = BlocProvider.of<ObjectDetectionCubit>(context);
     cubit.loadModel().then((value) => cubit.initCamera(mounted));
     cubit.playVoiceNote(Constants.ObjectDetectionInitialText_STR);
-    //cubit.playobject();
+    cubit.playVoiceNote(text);
+
     super.initState();
   }
 
@@ -48,46 +44,53 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
     var cubit = BlocProvider.of<ObjectDetectionCubit>(context);
     return BlocBuilder<ObjectDetectionCubit,ObjectDetectionState>(builder: (context,state)=>
         Scaffold(
-          body: Container(
-            color: Colors.black,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Stack(
-                    children: [
-                      Center(
-                        child: SizedBox(
-                          height:100.h,
-                          width: 100.w,
+          body: GestureDetector(
+            onTap:(){
+              cubit.playobject();
+            } ,
+            child: Container(
+              color: Colors.black,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Center(
+                          child: SizedBox(
+                            height:100.h,
+                            width: 100.w,
 
-                          child: cubit.imgCamera == null
-                              ?  Icon(Icons.photo_camera_front, color: Colors.lightGreenAccent, size: Dimensions.p40)
-                              : AspectRatio(
-                            aspectRatio: cubit.cameraController!.value.aspectRatio,
-                            child: CameraPreview(cubit.cameraController!),
+                            child: cubit.imgCamera == null
+                                ?  Icon(Icons.photo_camera_front, color: Colors.lightGreenAccent, size: Dimensions.p40)
+                                : AspectRatio(
+                              aspectRatio: cubit.cameraController.value.aspectRatio,
+                              child: CameraPreview(cubit.cameraController),
 
-                          ),
-                        ),
-                      ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(top: Dimensions.p55),
-                          child: SingleChildScrollView(
-                            child: Text(
-                              cubit.result??"",
-                              style:  TextStyle(
-                                backgroundColor: Colors.white,
-                                fontSize: Dimensions.p25,
-                                color: Colors.black,
-                              ),
-                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        Center(
+                          child:
+                        Container(
+                              margin: EdgeInsets.only(top: Dimensions.p55),
+                              child: SingleChildScrollView(
+                                child: Text(
+                                  cubit.result??"",
+                                  style:  TextStyle(
+                                    backgroundColor: Colors.white,
+                                    fontSize: Dimensions.p25,
+                                    color: Colors.black,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
