@@ -22,12 +22,16 @@ class ObjectDetectionCubit extends Cubit<ObjectDetectionState>
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
 
-  // final FlutterTts flutterTts1 = FlutterTts();
-  // final AudioPlayer audioPlayer1 = AudioPlayer();
 
+
+  Future<void> playobject() async {
+    await flutterTts.setLanguage('ar-US');
+    await flutterTts.setPitch(1);
+    await flutterTts.speak(result);
+  }
   initCamera(mounted) {
-    cameraController!.initialize().then((value) {
-        cameraController!.startImageStream((image) {
+    cameraController.initialize().then((value) {
+        cameraController.startImageStream((image) {
           if (!mounted) {
             return;
           }
@@ -59,10 +63,8 @@ class ObjectDetectionCubit extends Cubit<ObjectDetectionState>
       );
       result = '';
       for (var element in recognitions!) {
-        result += element["label"] +
-            " " +
-            (element["confidence"] as double).toStringAsFixed(2) +
-            "\n\n";
+        result = element["label"];
+
       }
       isWorking = false;
 
