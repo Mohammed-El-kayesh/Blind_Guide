@@ -5,15 +5,16 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_ml_vision/google_ml_vision.dart';
 import 'package:just_audio/just_audio.dart';
 
+import '../../utils/constants.dart';
 import 'textRecognitionState.dart';
 
 class TextRecognitionCubit extends Cubit<TextRecognitionState>
 {
   TextRecognitionCubit():super(InitialState());
-  final FlutterTts flutterTts = FlutterTts();
+  late final FlutterTts flutterTts = FlutterTts();
   late CameraController cameraController;
-  final AudioPlayer audioPlayer = AudioPlayer();
-  late TextRecognizer recognizer= GoogleVision.instance.textRecognizer();
+  //final AudioPlayer audioPlayer = AudioPlayer();
+   TextRecognizer recognizer= GoogleVision.instance.textRecognizer();
   String? recognizedText="";
   bool isCamInitialize = false;
 
@@ -26,8 +27,8 @@ class TextRecognitionCubit extends Cubit<TextRecognitionState>
     cameraController = CameraController(firstCamera, ResolutionPreset.high);
     await cameraController.initialize();
     changeIsCamInitialize();
-    print("initializeCamera");
-   emit(InitializeCameraState());
+    print("initializeCamera***********************************");
+  // emit(InitializeCameraState());
   }
 
   void changeIsCamInitialize(){
@@ -40,19 +41,44 @@ class TextRecognitionCubit extends Cubit<TextRecognitionState>
     final visionImage = GoogleVisionImage.fromFilePath(image.path);
     final visionText = await recognizer.processImage(visionImage);
     recognizedText = visionText.text;
-    playVoiceNote(recognizedText);
-    emit(ScanTextState());
+    playVoiceNote();
+  //  emit(ScanTextState());
   }
 
-  Future<void> playVoiceNote(text) async {
+  Future<void> playVoiceNote() async {
     await flutterTts.setLanguage('ar-US');
     await flutterTts.setPitch(1);
-    await flutterTts.speak(text);
+     flutterTts.speak(recognizedText!);
+   // emit(PlayVoiceNote());
     print("playVoiceNote");
   }
 
+  Future<void> playInitVoice() async {
+    await flutterTts.setLanguage('ar-US');
+    await flutterTts.setPitch(1);
+    flutterTts.speak(Constants.TextRecognitionInitialText_STR);
+   // emit(PlayVoiceNote());
+    print("playVoiceNote");
+  }
 
+   stopVoice()  {
+    recognizedText = "";
+    () async {
+      await flutterTts.speak(recognizedText!);
+    };
+ //   emit(StopVoice());
+    print("stopVoice***************************************");
+  }
 
-
-
+// @override
+//   close()async {
+//       await flutterTts.stop();
+//       await flutterTts.pause();
+//       await cameraController.dispose();
+//       await recognizer.close();
+//       isCamInitialize=false;
+//   print("stopVoice***************************************");
+//
+//   super.close();
+//   }
 }

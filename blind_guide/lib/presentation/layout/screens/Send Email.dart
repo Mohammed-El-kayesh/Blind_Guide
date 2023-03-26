@@ -65,7 +65,7 @@ class _EmailScreenState extends State<EmailScreen> {
             ),
             SizedBox(height: 16),
             Center(
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: _sendEmail,
                 child: Text('Send Email'),
               ),

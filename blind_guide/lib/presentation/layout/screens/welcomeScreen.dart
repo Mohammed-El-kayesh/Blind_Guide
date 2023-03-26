@@ -26,9 +26,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState(){
     super.initState();
-     playVoiceNote().whenComplete(() =>Timer(const Duration(seconds: 3),()=> Navigator.pushReplacement(
-         context,
-        MaterialPageRoute(builder: (context) =>  PageViewScreen()))) ,);
+     playVoiceNote();
 
   }
 

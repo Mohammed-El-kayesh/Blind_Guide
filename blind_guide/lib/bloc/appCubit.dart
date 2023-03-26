@@ -27,6 +27,7 @@ class AppCubit extends Cubit<AppState>
     const ObjectDetectionScreen(),
     ColorDetectionScreen(),
     const TextRecognitionScreen(),
+   // OCRScannerScreen(),
     EmergencyScreen(),
   ];
 

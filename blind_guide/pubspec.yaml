@@ -57,7 +57,9 @@ dependencies:
   speech_to_text: ^6.1.1
   fluttercontactpicker: ^4.7.0
   flutter_email_sender: ^5.2.0
-
+  smooth_page_indicator:
+  google_fonts: ^3.0.1
+  shared_preferences:
 
 
 
@@ -93,6 +95,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

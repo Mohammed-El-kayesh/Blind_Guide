@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 
 class Constants{
  static const String appName="Blind Guid";
+ static const String isOnBoarding="onboarding";
  static const String noInternet='${baseAssetImage}no_internet.png';
  static const String baseAssetImage='assets/images/';
 
@@ -35,6 +36,7 @@ class Dimensions{
  static double p17 = 100.h/(100.h/17);
  static double p18 = 100.h/(100.h/18);
  static double p20 = 100.h/(100.h/20);
+ static double p22 = 100.h/(100.h/22);
  static double p24 = 100.h/(100.h/24);
  static double p25 = 100.h/(100.h/25);
  static double p30 = 100.h/(100.h/30);
@@ -52,6 +54,10 @@ class Dimensions{
  static double p90 = 100.h/(100.h/90);
  static double p95 = 100.h/(100.h/95);
  static double p100 = 100.h/(100.h/100);
+ static double p200 = 100.h/(100.h/200);
+ static double p270 = 100.h/(100.h/270);
+ static double p300 = 100.h/(100.h/300);
+ static double p370 = 100.h/(100.h/370);
  static double statusBarH =0;
  // if(Dimensions.statusBarH==0)
  // Dimensions.statusBarH=MediaQuery.of(context).padding.top;
