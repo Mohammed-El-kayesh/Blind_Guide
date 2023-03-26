@@ -2,13 +2,9 @@
 import 'package:blind_guide/utils/constants.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_ml_vision/google_ml_vision.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:sizer/sizer.dart';
-import '../../../bloc/appState.dart';
-import '../../../bloc/textRecognitionCubit/textRecognitionState.dart';
 
 class TextRecognitionScreen extends StatefulWidget {
   const TextRecognitionScreen({Key? key}) : super(key: key);

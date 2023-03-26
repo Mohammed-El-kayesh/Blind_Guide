@@ -1,4 +1,4 @@
-import 'package:blind_guide/bloc/emergencyCallCubit/emergency_CallCubit.dart';
+import 'package:blind_guide/presentation/layout/screens/emergencyCalls.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -37,7 +37,7 @@ class Utils {
   static Future callPhoneNumber(String body, int index, context) async {
     await flutterTts.awaitSpeakCompletion(true);
     await flutterTts.setLanguage("ar-EG");
-    await flutterTts.speak('الاتصال بي ${emergencyCallCubit.get(context).contacts[index]['name']}').then((value) async => await FlutterPhoneDirectCaller.callNumber(emergencyCallCubit.get(context).contacts[index]['number']));
+    await flutterTts.speak('الاتصال بي ${contacts[index]['name']}').then((value) async => await FlutterPhoneDirectCaller.callNumber(contacts[index]['number']));
 
 
   }
@@ -54,10 +54,10 @@ class Utils {
     } else if (text.contains(Command.two.toString()) ||  text.contains(2.toString())) {
       final body = _executeCommand(text: text, command: Command.one);
       callPhoneNumber(body,1, context);
-    } else if (text.contains(Command.three.toString()) ||  text.contains(3.toString()) || text.contains('siri')) {
+    } else if (text.contains(Command.three.toString()) ||  text.contains(3.toString())) {
       final body = _executeCommand(text: text, command: Command.one);
       callPhoneNumber(body,2, context);
-    } else if (text.contains(Command.four.toString()) ||  text.contains(4.toString()) || text.contains('for')) {
+    } else if (text.contains(Command.four.toString()) ||  text.contains(4.toString())) {
       final body = _executeCommand(text: text, command: Command.one);
       callPhoneNumber(body,3, context);
     } else if (text.contains(Command.five.toString()) ||  text.contains(5.toString())) {

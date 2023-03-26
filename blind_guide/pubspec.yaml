@@ -39,7 +39,6 @@ dependencies:
   tflite:
   flutter_launcher_icons:
   sizer: ^2.0.15
-  flutter_bloc: ^8.1.1
   dio: ^4.0.6
   flutter_offline: ^2.1.0
   flutter_tts:

@@ -1,13 +1,9 @@
-
-import 'package:blind_guide/bloc/blocObserver/blocObserver.dart';
 import 'package:blind_guide/presentation/layout/screens/colorDetection.dart';
 import 'package:blind_guide/presentation/layout/screens/emergencyCalls.dart';
 import 'package:blind_guide/presentation/layout/screens/objectDetection.dart';
 import 'package:blind_guide/presentation/layout/screens/textRecognition.dart';
 import 'package:blind_guide/presentation/layout/screens/welcomeScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blind_guide/bloc/appState.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
 import '../../utils/constants.dart';

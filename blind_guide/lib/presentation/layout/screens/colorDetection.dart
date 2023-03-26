@@ -16,6 +16,7 @@ class _ColorDetectionScreenState extends State<ColorDetectionScreen> {
   final String text = 'هذه الصفحة للتعرف على الألوان';
 
   Future<void> playVoiceNote() async {
+    await flutterTts.stop();
     await flutterTts.setLanguage('ar-US');
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
