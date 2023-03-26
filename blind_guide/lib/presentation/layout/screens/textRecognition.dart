@@ -16,6 +16,8 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
   late CameraController _cameraController;
   late TextRecognizer _recognizer;
   String? _recognizedText;
+  bool isCamInitialize = false;
+
 /////sound////
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
@@ -41,13 +43,16 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
     final firstCamera = cameras.first;
     _cameraController = CameraController(firstCamera, ResolutionPreset.high);
     await _cameraController.initialize();
-    setState(() {});
+    setState(() {
+      isCamInitialize = true;
+    });
   }
 
   @override
   void dispose() {
     _cameraController.dispose();
     _recognizer.close();
+    isCamInitialize = false;
     super.dispose();
   }
   Future<void> playVoiceNote() async {
@@ -74,12 +79,9 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (!_cameraController.value.isInitialized) {
-      return Container();
-    }
     return Scaffold(
 
-      body: GestureDetector(
+      body: isCamInitialize ? GestureDetector(
         onTap: (){_scanText();
         playScanText();
         },
@@ -92,6 +94,16 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
             ),
 
 
+          ],
+        ),
+      ) : Container(
+        color: Colors.black,
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.photo_camera_front, color: Colors.lightGreenAccent, size: 40,),
           ],
         ),
       ),
