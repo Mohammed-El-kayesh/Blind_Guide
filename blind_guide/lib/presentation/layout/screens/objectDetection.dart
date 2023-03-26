@@ -1,3 +1,5 @@
+
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -16,35 +18,50 @@ class ObjectDetectionScreen extends StatefulWidget {
 }
 
 class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
-
   bool isWorking = false;
   String result = '';
-  CameraController cameraController= CameraController(cameras![0], ResolutionPreset.max);
+  CameraController? cameraController;
   CameraImage? imgCamera;
-  FlutterTts flutterTts =FlutterTts();
-  Future<void> playobject() async {
-    await flutterTts.setLanguage('ar-US');
-    await flutterTts.setPitch(1);
-    await flutterTts.speak(result);
-  }
+
+/////sound////
+  final FlutterTts flutterTts = FlutterTts();
+  final AudioPlayer audioPlayer = AudioPlayer();
+  final String text = 'هذه الصفحة للتعرف على نوع الأشياء و تجنب العوائق';
+
+  //final translator = GoogleTranslator();
+  // String trasnlatedText='';
+  //
+  // Future<void> _translate() async {
+  //   try {
+  //     String translation = (await translator.translate(result, to: 'ar')) as String;
+  //     setState(() {
+  //       trasnlatedText = translation;
+  //     });
+  //   } catch (e) {
+  //     print('Error occurred while translating: $e');
+  //   }
+  // }
+
+
 
   initCamera() {
     cameraController = CameraController(cameras![0], ResolutionPreset.max);
     cameraController!.initialize().then((value) {
-      if (mounted) {
-        setState(() {
-          cameraController!.startImageStream((image) {
-            if (!isWorking) {
-              isWorking = true;
-              imgCamera = image;
-              runModelOnStreamFrames();
-            }
-          });
-        });
+      if (!mounted) {
+        return;
       }
-
+      setState(() {
+        cameraController!.startImageStream((image) {
+          if (!isWorking) {
+            isWorking = true;
+            imgCamera = image;
+            runModelOnStreamFrames();
+          }
+        });
+      });
     });
   }
+
   runModelOnStreamFrames() async {
     if (imgCamera != null) {
       var recognitions = await Tflite.runModelOnFrame(
@@ -62,16 +79,12 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
       );
       result = '';
       for (var element in recognitions!) {
-        result += element["label"] +
-            " " +
-            (element["confidence"] as double).toStringAsFixed(2) +
-            "\n\n";
+        result = element["label"] +" ";
+
       }
-      if(mounted) {
-        setState(() {
-          result;
-        });
-      }
+      setState(() {
+        result;
+      });
       isWorking = false;
     }
   }
@@ -82,37 +95,41 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
       labels:Constants.objectDetectionLable_STR,
     );
   }
-
-  Future<void> playVoiceNote(text) async {
-    await flutterTts.setLanguage('ar-US');
+  /////Sound////
+  Future<void> playVoiceNote() async {
+    await flutterTts.setLanguage('ar');
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
 
-    print("playVoiceNote");
   }
+  Future<void> playobject() async {
+    await flutterTts.setLanguage('ar');
+    await flutterTts.setPitch(1);
+    await flutterTts.speak(result);
+  }
+
   @override
   void initState() {
     loadModel().then((value) => initCamera());
+    playVoiceNote();
+    // playobject();
+    // _translate();
     super.initState();
   }
-  @override
-  void dispose()  {
-    super.dispose();
-    cameraController!.dispose();
-    isWorking=false;
-    Tflite.close();
-    print("stopVoice***************************************");
 
-  }
+  // @override
+  // void dispose() async {
+  //   await Tflite.close();
+  //   cameraController?.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       body: GestureDetector(
-        onTap:(){
-          playobject();
-        } ,
+        onTap:playobject ,
         child: Container(
           color: Colors.black,
           child: SingleChildScrollView(
@@ -120,6 +137,7 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
               children: [
                 Stack(
                   children: [
+
                     Center(
                       child: SizedBox(
                         height:100.h,
@@ -135,12 +153,11 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
                       ),
                     ),
                     Center(
-                      child:
-                      Container(
+                      child: Container(
                         margin: EdgeInsets.only(top: Dimensions.p55),
                         child: SingleChildScrollView(
                           child: Text(
-                            result??"",
+                            result,
                             style:  TextStyle(
                               backgroundColor: Colors.white,
                               fontSize: Dimensions.p25,
@@ -150,10 +167,11 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
                           ),
                         ),
                       ),
-
                     ),
+
                   ],
                 ),
+
               ],
             ),
           ),
@@ -161,6 +179,5 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
       ),
 
     );
-
   }
 }

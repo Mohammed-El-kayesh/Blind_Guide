@@ -32,7 +32,6 @@ class _PageViewScreenState extends State<PageViewScreen> {
     const ObjectDetectionScreen(),
     ColorDetectionScreen(),
     const TextRecognitionScreen(),
-    // OCRScannerScreen(),
     EmergencyScreen(),
   ];
 

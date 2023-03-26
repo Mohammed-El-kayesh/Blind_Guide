@@ -32,7 +32,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   Future<void> playVoiceNote() async {
 
-    await flutterTts.setLanguage('ar-US');
+    await flutterTts.setLanguage('ar');
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
 
@@ -52,7 +52,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+appBar: AppBar(title: Text("Welcome"),),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,

@@ -35,7 +35,7 @@ class _OnBoardingState extends State<OnBoarding> {
   }
   void submit(context)async{
     await  CachHelper.setBoolData(  key:Constants.isOnBoarding,value: true,);
-    Navigator.of(context)?.pushReplacement(MaterialPageRoute(builder: (context){
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
       return PageViewScreen();
     }));
   }
