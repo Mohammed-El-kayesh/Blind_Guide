@@ -1,3 +1,4 @@
+import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -29,9 +30,14 @@ class _ColorDetectionScreenState extends State<ColorDetectionScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('Color Detection')),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(Constants.colorDetection_STR),
+      ),
+      body: Container(
+        child: Center(child: Text('Color Detection')),
 
+      ),
     );
   }
 }

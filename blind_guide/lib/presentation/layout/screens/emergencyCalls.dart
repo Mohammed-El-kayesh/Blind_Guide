@@ -1,15 +1,14 @@
 import 'package:blind_guide/CallsSystem/commands.dart';
 import 'package:blind_guide/CallsSystem/speech.dart';
+import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:sqflite/sqflite.dart';
 
-
 Database? database;
 List<Map> contacts = [];
-
 
 class EmergencyScreen extends StatefulWidget {
   @override
@@ -19,17 +18,16 @@ class EmergencyScreen extends StatefulWidget {
 class _EmergencyScreenState extends State<EmergencyScreen> {
   PhoneContact? _phoneContact;
   FlutterTts flutterTts = FlutterTts();
-  Future<void> waitcomplete()
-  async {
+
+  Future<void> waitcomplete() async {
     await flutterTts.awaitSpeakCompletion(true);
   }
-  Future<void> screenTitle()
-  async {
+
+  Future<void> screenTitle() async {
     await flutterTts.speak('شاشة مكالمات الطواري');
   }
 
-  void speakContacts()
-  {
+  void speakContacts() {
     Future.delayed(const Duration(seconds: 3), () async {
       if (contacts.length > 0) {
         for (int i = 0; i < contacts.length; i++) {
@@ -54,21 +52,41 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(Constants.emergencyCalls_STR),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              if (contacts.length < 5) {
+                final PhoneContact contact =
+                    await FlutterContactPicker.pickPhoneContact();
+                _phoneContact = contact;
+                insertToDatabase(
+                    name: _phoneContact!.fullName ?? '---',
+                    number: _phoneContact!.phoneNumber!.number ?? '*/*/*/');
+              } else {
+                await flutterTts.speak(
+                    'لقد وَصَلْتا للحدى الأقصى من جهات الاتصال، من فضلك احذف واحدة لإضافة جهت اتصال جديدة');
+              }
+            },
+            icon: Icon(Icons.contacts),
+          ),
+        ],
+      ),
       body: Column(
         children: [
           if (contacts.isNotEmpty)
             Expanded(
               child: InkWell(
                 child: ListView.separated(
-                    itemBuilder: (context, index) =>
-                        buildContactList(context,
+                    itemBuilder: (context, index) => buildContactList(
+                          context,
                           name: contacts[index]['name'],
                           phoneNumber: contacts[index]['number'],
                           id: index + 1,
                           contactID: contacts[index]['id'],
                         ),
-                    separatorBuilder: (context, index) =>
-                        Container(
+                    separatorBuilder: (context, index) => Container(
                           margin: const EdgeInsets.symmetric(
                             horizontal: 20,
                           ),
@@ -77,10 +95,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
                             vertical: 20,
                           ),
                           height: 1,
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width,
+                          width: MediaQuery.of(context).size.width,
                           color: Colors.grey[300],
                         ),
                     itemCount: contacts.length),
@@ -89,10 +104,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
             ),
           if (contacts.isEmpty)
             Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               color: Colors.amber[300],
               margin: const EdgeInsets.symmetric(
                 vertical: 20,
@@ -122,23 +134,8 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
             ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () async {
-        if (contacts.length < 5) {
-          final PhoneContact contact =
-          await FlutterContactPicker.pickPhoneContact();
-          _phoneContact = contact;
-          insertToDatabase(
-              name: _phoneContact!.fullName ?? '---',
-              number: _phoneContact!.phoneNumber!.number ?? '*/*/*/');
-        } else {
-          await flutterTts.speak(
-              'لقد وَصَلْتا للحدى الأقصى من جهات الاتصال، من فضلك احذف واحدة لإضافة جهت اتصال جديدة');
-        }
-      },
-        child: Icon(Icons.contacts),),
     );
   }
-
 
   // Voice Recognition
   String textSample = 'Click button to start recording';
@@ -156,11 +153,9 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
         }
       });
 
-
   void speak(String text) async {
     await flutterTts.speak(text);
   }
-
 
 // 1. Create DB
   void createDatabase() {
@@ -171,7 +166,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
         print('DB Created!');
         await database
             .execute(
-            'CREATE TABLE contacts (id INTEGER PRIMARY KEY, name TEXT, number TEXT)')
+                'CREATE TABLE contacts (id INTEGER PRIMARY KEY, name TEXT, number TEXT)')
             .then((value) {
           print('Table Created!');
         }).catchError((error) {
@@ -184,6 +179,8 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
           clearLists();
           value.forEach((element) {
             contacts.add(element);
+            setState(() {
+            });
           });
         });
       },
@@ -198,7 +195,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
     required String number,
   }) async {
     await database?.transaction(
-          (txn) async {
+      (txn) async {
         await txn
             .rawInsert(
           'INSERT INTO contacts(name, number) VALUES("$name", "$number")',
@@ -211,8 +208,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
             value.forEach((element) {
               contacts.add(element);
             });
-            setState(() {
-            });
+            setState(() {});
           });
         }).catchError((error) {
           print('Error when inserting new raw ${error.toString()}');
@@ -221,15 +217,14 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
     );
   }
 
-
   //Class to List
-  Widget buildContactList(BuildContext context,
-      {
-        required int id,
-        required String name,
-        required String phoneNumber,
-        required int contactID,
-      }) {
+  Widget buildContactList(
+    BuildContext context, {
+    required int id,
+    required String name,
+    required String phoneNumber,
+    required int contactID,
+  }) {
     return InkWell(
       onTap: () async {
         await FlutterPhoneDirectCaller.callNumber(phoneNumber);
@@ -275,7 +270,6 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
     return await database.rawQuery('SELECT * FROM contacts');
   }
 
-
 // 5. Delete From DB
   void deleteData({
     required int id,
@@ -288,19 +282,8 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
         value.forEach((element) {
           contacts.add(element);
         });
-        setState(() {
-        });
+        setState(() {});
       });
     });
   }
-
-
-
-
-
-
-
 }
-
-
-

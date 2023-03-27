@@ -72,9 +72,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(titles[currentPageIndex]),
-        ),
+        // appBar: AppBar(
+        //   title: Text(titles[currentPageIndex]),
+        // ),
         body: PageView(
           controller: pageController,
           onPageChanged: (int index){

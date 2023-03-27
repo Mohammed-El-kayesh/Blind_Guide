@@ -1,4 +1,5 @@
 
+import 'package:blind_guide/utils/constants.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -80,7 +81,9 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: AppBar(
+        title: Text(Constants.textRecognition_STR),
+      ),
       body: isCamInitialize ? GestureDetector(
         onTap: (){_scanText();
         playScanText();
