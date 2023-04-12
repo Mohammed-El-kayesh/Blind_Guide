@@ -54,9 +54,9 @@ class Dimensions{
  static double p90 = 100.h/(100.h/90);
  static double p95 = 100.h/(100.h/95);
  static double p100 = 100.h/(100.h/100);
- static double p200 = 100.h/(100.h/200);
+ static double p220 = 100.h/(100.h/220);
  static double p270 = 100.h/(100.h/270);
- static double p300 = 100.h/(100.h/300);
+ static double p320 = 100.h/(100.h/320);
  static double p370 = 100.h/(100.h/370);
  static double statusBarH =0;
  // if(Dimensions.statusBarH==0)

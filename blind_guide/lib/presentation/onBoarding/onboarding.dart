@@ -5,7 +5,7 @@ import 'package:blind_guide/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import '../../model/onBoardingModel.dart';
 import '../../share/sharedpreference.dart';
 import '../../utils/colors.dart';
@@ -27,18 +27,34 @@ class _OnBoardingState extends State<OnBoarding> {
 
   //bool islast = false;
   int index=0;
+  bool flag =false;
+   CountDownController countDownController= CountDownController();
+
   void incIndex(){
   setState(() {
-    if(index<onBoarding.length)
-    index++;
-  });
+  if(index<onBoarding.length)
+   {
+      index++;
+      print(index);
+     countDownController.start();
+   }
+   });
   }
+
   void submit(context)async{
-    await  CachHelper.setBoolData(  key:Constants.isOnBoarding,value: true,);
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
-      return PageViewScreen();
-    }));
+    // await  CachHelper.setBoolData(  key:Constants.isOnBoarding,value: true,);
+    // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+    //   return PageViewScreen();
+    // }));
+    //countDownController.restart();
   }
+
+ @override
+  void initState() {
+   countDownController.start();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,41 +69,85 @@ class _OnBoardingState extends State<OnBoarding> {
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: EdgeInsets.fromLTRB(Dimensions.p20,Dimensions.p20,0,Dimensions.p25),
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: SafeGoogleFont (
-                      'Oxygen',
-                      fontSize: Dimensions.p25,
-                      fontWeight: FontWeight.w400,
-                 //     height: Dimensions.p22,
-                      color: Color(0xff000000),
+              Padding(
+                padding: EdgeInsets.fromLTRB(Dimensions.p20,Dimensions.p20,Dimensions.p25,Dimensions.p25),
+                child: Row(
+                  children: [
+                    Container(
+                           child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: SafeGoogleFont (
+                            'Oxygen',
+                            fontSize: Dimensions.p25,
+                            fontWeight: FontWeight.w400,
+                       //     height: Dimensions.p22,
+                            color: Color(0xff000000),
+                          ),
+                          children: [
+                            TextSpan(
+                              text: 'Blind',
+                              style: SafeGoogleFont (
+                                'Oxygen',
+                                fontSize: Dimensions.p25,
+                                fontWeight: FontWeight.w700,
+                              //  height: Dimensions.p22,
+                                color: Color(0xff19755f),
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Guide',
+                              style: SafeGoogleFont (
+                                'Oxygen',
+                                fontSize: Dimensions.p25,
+                                fontWeight: FontWeight.w400,
+                         //       height: Dimensions.p22,
+                                color: Color(0xff000000),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                    children: [
-                      TextSpan(
-                        text: 'Blind',
-                        style: SafeGoogleFont (
-                          'Oxygen',
-                          fontSize: Dimensions.p25,
-                          fontWeight: FontWeight.w700,
-                        //  height: Dimensions.p22,
-                          color: Color(0xff19755f),
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'Guide',
-                        style: SafeGoogleFont (
-                          'Oxygen',
-                          fontSize: Dimensions.p25,
-                          fontWeight: FontWeight.w400,
-                   //       height: Dimensions.p22,
-                          color: Color(0xff000000),
-                        ),
-                      ),
-                    ],
-                  ),
+                    Spacer(),
+                    CircularCountDownTimer(
+          duration: 5,
+          initialDuration: 0,
+          controller: countDownController,
+          width: Dimensions.p30,
+          height: Dimensions.p30,
+          ringColor: Colors.grey[300]!,
+          ringGradient: null,
+          fillColor:Color(0xff000000),
+          fillGradient: null,
+          backgroundColor: Color(0xff19755f),
+          backgroundGradient: null,
+          strokeWidth: Dimensions.p10,
+          strokeCap: StrokeCap.round,
+          textStyle: TextStyle(
+                fontSize: Dimensions.p12, color: Colors.white, fontWeight: FontWeight.bold),
+          textFormat: CountdownTextFormat.S,
+          isReverse: false,
+          isReverseAnimation: false,
+          isTimerTextShown: true,
+          autoStart: true,//
+          onComplete: () {
+            if(index == onBoarding.length - 1){
+              submit(context);
+            }else {
+              incIndex();
+            }
+          },
+          timeFormatterFunction: (defaultFormatterFunction, duration) {
+            // if (duration.inSeconds == 0) {
+                 return "${duration.inSeconds}";
+            // } else {
+            //     return Function.apply(defaultFormatterFunction, [duration]);
+            // }
+           // return Function.apply(defaultFormatterFunction, [duration]);
+          },
+        ),
+                  ],
                 ),
               ),
               Container(
@@ -100,8 +160,8 @@ class _OnBoardingState extends State<OnBoarding> {
                     Container(
                       // blindgirlsittingandreadingbook (6:2036)
                       margin: EdgeInsets.fromLTRB(Dimensions.p60, 0, 0,Dimensions.p65),
-                     width: 220,//Dimensions.p200,
-                     height: 320,//                Dimensions.p300,
+                     width: 220, // Dimensions.p220,
+                     height:  320,//Dimensions.p320,
                       child: Image.asset(
                         onBoarding[index].image,
                         fit: BoxFit.contain,
@@ -192,18 +252,11 @@ class _OnBoardingState extends State<OnBoarding> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children:
-                        List.generate(onBoarding.length, (i) {return Row(children: [
-                         if(i!=index)
-                           Container(
-                              // rectangle3mBB (7:2050)
-                              width: Dimensions.p18,
-                              height: Dimensions.p8,
-                              decoration: BoxDecoration (
-                                borderRadius: BorderRadius.circular(Dimensions.p10),
-                                color: Color(0xffd9d9d9),
-                              ),
-                            ),
-                         if(i==index)
+
+                        List.generate(onBoarding.length, (i) {
+
+                          return Row(children: [
+                         i==index?
                             Container(
                               // rectangle2Tph (7:2049)
                               width: Dimensions.p40,
@@ -212,7 +265,16 @@ class _OnBoardingState extends State<OnBoarding> {
                                 borderRadius: BorderRadius.circular(Dimensions.p10),
                                 color: Color(0xff73988f),
                               ),
-                            ),
+                            ):
+                         Container(
+                           // rectangle3mBB (7:2050)
+                           width: Dimensions.p18,
+                           height: Dimensions.p8,
+                           decoration: BoxDecoration (
+                             borderRadius: BorderRadius.circular(Dimensions.p10),
+                             color: Color(0xffd9d9d9),
+                           ),
+                         ),
                          SizedBox(width: Dimensions.p10,),
 
 
@@ -245,6 +307,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         ),
                       ),
                       onTap: (){
+
                         if(index == onBoarding.length - 1){
                           submit(context);
                         }else {
