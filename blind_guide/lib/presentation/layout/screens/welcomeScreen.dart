@@ -7,7 +7,11 @@ import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
-
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import '../../../main.dart';
 import '../pageView.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -21,33 +25,61 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
+  bool isComplete = false ;
   final String text = 'مرحبا بك في تطبيق مساعد المكفوفين';
-
   @override
   void initState(){
     super.initState();
-     playVoiceNote();
+
+    Future<void> playVoiceNote(double event) async {
+      isComplete = true ;
+      await flutterTts.setLanguage('ar');
+      await flutterTts.setPitch(1);
+
+      if(event<1){
+        await flutterTts.speak("يوجد عائق على بعد اقل من متر  ");
+      }
+      else if(event>1 &&event<2) {
+        await flutterTts.speak("يوجد عائق على بعد اثنان متر  ");
+      }
+      else if(event >2 && event <3)
+      {
+        await flutterTts.speak("يوجد عائق على بعد ثلاثة امتار  ");
+      }
+      else
+      {
+        await flutterTts.speak("يوجد عائق على بعد أكثر من ثلاثة متر  ");
+
+      }
+      flutterTts.setCompletionHandler(() {
+        isComplete = false ;
+        print("end------------------") ;
+      }) ;
+
+    }
+    FirebaseDatabase.instance.ref().child('data').onValue.listen((event) async {
+
+      print(event.snapshot.value);
+
+      DataSnapshot snapshot = event.snapshot;
+
+
+      Map<dynamic, dynamic>? dataMap = snapshot.value as Map<dynamic, dynamic>? ;
+      print(dataMap!['distance']);
+
+      if(!isComplete) {
+        if(dataMap['distance']!=null) {
+          await playVoiceNote((int.parse(dataMap['distance'])/100)) ;
+        }
+      }
+    });
+
 
   }
 
-  Future<void> playVoiceNote() async {
 
-    await flutterTts.setLanguage('ar');
-    await flutterTts.setPitch(1);
-    await flutterTts.speak(text);
 
-    // final audioUrl = 'https://example.com/voice_note.mp3';
-    // final audioSource = ProgressiveAudioSource(Uri.parse(audioUrl));
-    // await audioPlayer.setAudioSource(audioSource);
-    // await audioPlayer.play();
-  }
 
-  // @override
-  // void dispose() {
-  //   audioPlayer.stop();
-  //   flutterTts.stop();
-  //   super.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {

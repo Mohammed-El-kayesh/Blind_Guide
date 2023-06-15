@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "693923612875",
+    "firebase_url": "https://blindguide-53aa3-default-rtdb.firebaseio.com",
+    "project_id": "blindguide-53aa3",
+    "storage_bucket": "blindguide-53aa3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693923612875:android:863393fb7fe729ac3ab34e",
+        "android_client_info": {
+          "package_name": "com.example.blind_guide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693923612875-bgme4qh5f52jvgk9m58g6d7mdjm7j8tr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn0FijxBapgDS2uU-9HyZMZT3GwNbyScE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693923612875-bgme4qh5f52jvgk9m58g6d7mdjm7j8tr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

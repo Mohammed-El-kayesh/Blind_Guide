@@ -138,15 +138,15 @@ class _OnBoardingState extends State<OnBoarding> {
               incIndex();
             }
           },
-          timeFormatterFunction: (defaultFormatterFunction, duration) {
-            // if (duration.inSeconds == 0) {
-                 return "${duration.inSeconds}";
-            // } else {
-            //     return Function.apply(defaultFormatterFunction, [duration]);
-            // }
-           // return Function.apply(defaultFormatterFunction, [duration]);
-          },
-        ),
+        //   timeFormatterFunction: (defaultFormatterFunction, duration) {
+        //     // if (duration.inSeconds == 0) {
+        //          return "${duration.inSeconds}";
+        //     // } else {
+        //     //     return Function.apply(defaultFormatterFunction, [duration]);
+        //     // }
+        //    // return Function.apply(defaultFormatterFunction, [duration]);
+        //   },
+         ),
                   ],
                 ),
               ),

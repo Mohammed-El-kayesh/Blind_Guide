@@ -28,22 +28,6 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
   final AudioPlayer audioPlayer = AudioPlayer();
   final String text = 'هذه الصفحة للتعرف على نوع الأشياء و تجنب العوائق';
 
-  //final translator = GoogleTranslator();
-  // String trasnlatedText='';
-  //
-  // Future<void> _translate() async {
-  //   try {
-  //     String translation = (await translator.translate(result, to: 'ar')) as String;
-  //     setState(() {
-  //       trasnlatedText = translation;
-  //     });
-  //   } catch (e) {
-  //     print('Error occurred while translating: $e');
-  //   }
-  // }
-
-
-
   initCamera() {
     cameraController = CameraController(cameras![0], ResolutionPreset.max);
     cameraController!.initialize().then((value) {
@@ -117,12 +101,6 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
     super.initState();
   }
 
-  // @override
-  // void dispose() async {
-  //   await Tflite.close();
-  //   cameraController?.dispose();
-  //   super.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {

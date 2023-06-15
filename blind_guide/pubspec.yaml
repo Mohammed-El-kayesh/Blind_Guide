@@ -52,13 +52,15 @@ dependencies:
   collection:
   sqflite: ^2.0.0+3
   path: ^1.8.0
+  firebase_database:
+  firebase_core:
   speech_to_text: ^6.1.1
   fluttercontactpicker: ^4.7.0
   flutter_email_sender: ^5.2.0
   smooth_page_indicator:
-  google_fonts: ^3.0.1
+  google_fonts:
   shared_preferences:
-  circular_countdown_timer: ^0.2.3
+  circular_countdown_timer:
 
 
 
