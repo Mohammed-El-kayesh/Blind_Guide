@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:blind_guide/presentation/layout/screens/NotificationScreen.dart';
 import 'package:blind_guide/presentation/layout/screens/Send%20Email.dart';
 import 'package:blind_guide/presentation/layout/screens/aboutScreen.dart';
 import 'package:blind_guide/presentation/widgets/primaryText.dart';
@@ -100,7 +101,13 @@ appBar: AppBar(title: Text("Welcome"),),
             ListTile(title: Text('about Application '),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutUS(),),);
+              },),
+            ListTile(title: Text('about Application '),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen(),),);
               },)
+
+
 
           ],
         ),
