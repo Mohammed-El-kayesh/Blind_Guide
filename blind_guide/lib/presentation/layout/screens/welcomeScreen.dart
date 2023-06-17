@@ -102,12 +102,10 @@ appBar: AppBar(title: Text("Welcome"),),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutUS(),),);
               },),
-            ListTile(title: Text('about Application '),
+            ListTile(title: Text('Schedule Time '),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen(),),);
               },)
-
-
 
           ],
         ),

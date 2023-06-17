@@ -95,7 +95,7 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
   @override
   void initState() {
     loadModel().then((value) => initCamera());
-    playVoiceNote();
+     playVoiceNote();
     // playobject();
     // _translate();
     super.initState();
