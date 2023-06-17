@@ -22,20 +22,20 @@ class OnBoarding extends StatefulWidget {
 class _OnBoardingState extends State<OnBoarding> {
   List<OnBoarding_model> onBoarding = [
     OnBoarding_model(
-        body: ' نحن هنا من اجلك !',
-        title: 'اهلا بك فى مرشد المكفوفين',
+        body: ' نَحن هنا من اجلك !',
+        title: 'أَهْلاً بِكَ فِى مُرْشِدُ المَكْفُوُفِيْنَ',
         image: 'assets/images/blind-girl-sitting-and-reading-book.png'),
     OnBoarding_model (
         body: 'سيساعدك هذا التطبيق على اكتشاف والتعرف  \nعلى كل الاشياء حولك',
-        title: 'شاهد كل شئ حولك',
+        title: 'ْشَاهِدْ كُلَّ شَئٍ حَوْلَك',
         image: 'assets/images/three-quarter-view-of-blind-girl.png'),
     OnBoarding_model(
         body: ' باستخدام خاصية التعرف على النصوص ,  \n سيساعدك تطبييقنا على تحويل نصوص الكتب الى صوت ',
-        title: 'اقرا كتبك المفضلة',
+        title: 'إِقْرَأْ كُتُبَكَ المُفَضَّلَةْ',
         image: 'assets/images/blind-girl-sitting-on-sofa-and-reading-book.png'),
     OnBoarding_model(
         body: 'احفظ عِدة ارقام للطوارئ ',
-        title: 'نوفر مكالمات الطوارئ',
+        title: 'نُوَفِّرُ مُكَالَمَاتُ الطَوَارِئ',
         image: 'assets/images/blind-girl-walking.png'),
   ];
   @override
@@ -70,14 +70,14 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   void submit(context) async {
-    // await CachHelper.setBoolData(
-    //   key: Constants.isOnBoarding,
-    //   value: true,
-    // );
-    // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-    //   return PageViewScreen();
-    // }));
-    // countDownController.restart();
+    await CachHelper.setBoolData(
+      key: Constants.isOnBoarding,
+      value: true,
+    );
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+      return PageViewScreen();
+    }));
+    countDownController.restart();
   }
 
   @override
