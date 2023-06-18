@@ -1,3 +1,4 @@
+import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 
@@ -7,8 +8,10 @@ class EmailScreen extends StatefulWidget {
 }
 
 class _EmailScreenState extends State<EmailScreen> {
-  final _recipientController = TextEditingController(text: "blind.guide.team@gmail.com");
-  final _subjectController = TextEditingController(text: "Complaint or inquiry");
+  final _recipientController =
+      TextEditingController(text: "blind.guide.team@gmail.com");
+  final _subjectController =
+      TextEditingController(text: "Complaint or inquiry");
   final _bodyController = TextEditingController();
 
   void _sendEmail() async {
@@ -24,53 +27,57 @@ class _EmailScreenState extends State<EmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Help"),),
-
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-
-        child:
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: 40),
-
-
-            Text('To:'),
-            TextField(
-              controller: _recipientController,
-              decoration: InputDecoration(
-                hintText: 'Enter email address',
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: [
+                  IconButton(onPressed: () {
+                    Navigator.of(context).pop();
+                  }, icon: Icon(Icons.keyboard_arrow_right,size: 30,),color: Colors.teal[600],),
+                  Text("المساعدة",style: TextStyle(color: Colors.teal,fontSize: Dimensions.p22,fontWeight: FontWeight.w700)),
+                ],
               ),
-            ),
-            SizedBox(height: 16),
-            Text('Subject:'),
-            TextField(
-              controller: _subjectController,
-              decoration: InputDecoration(
-                hintText: 'Enter email subject',
-              ),
-            ),
-            SizedBox(height: 16),
-            Text('Body:'),
-            Expanded(
-              child: TextField(
-                controller: _bodyController,
+              SizedBox(height: Dimensions.p40),
+              Text('إلى:'),
+              TextField(
+                controller: _recipientController,
                 decoration: InputDecoration(
-                  hintText: 'Write your problem or Ask question',
+                  hintText: 'أدخل البريد الإلكتروني',
                 ),
-                maxLines: null,
-                expands: true,
               ),
-            ),
-            SizedBox(height: 16),
-            Center(
-              child: ElevatedButton(
-                onPressed: _sendEmail,
-                child: Text('Send Email'),
+              SizedBox(height: 16),
+              Text('عنوان الرسالة:'),
+              TextField(
+                controller: _subjectController,
+                decoration: InputDecoration(
+                  hintText: 'اختر موضوع الرسالة',
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 16),
+              Text('المشكلة:'),
+              Expanded(
+                child: TextField(
+                  controller: _bodyController,
+                  decoration: InputDecoration(
+                    hintText: 'قم بتوضيح مشكلتك، أو أدخل سؤالك؟',
+                  ),
+                  maxLines: null,
+                  expands: true,
+                ),
+              ),
+              SizedBox(height: 16),
+              Center(
+                child: ElevatedButton(
+                  onPressed: _sendEmail,
+                  child: Text('إرسال'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

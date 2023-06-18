@@ -1,3 +1,4 @@
+import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -95,36 +96,54 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Scheduled Notifications'),
-
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: _schedules.length,
-              itemBuilder: (context, index) {
-                final schedule = _schedules[index];
-                return ListTile(
-                  title: Text(schedule.title),
-                  subtitle: Text(schedule.time.toString()),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete),
-                    onPressed: () => _cancelNotification(schedule.id),
-                  ),
-                );
-              },
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(vertical: Dimensions.p20),
+              child: Row(
+                children: [
+                  IconButton(onPressed: () {
+                    Navigator.of(context).pop();
+                  }, icon: Icon(Icons.keyboard_arrow_right,size: 30,),color: Colors.teal[600],),
+                  Text("الإشعارات",style: TextStyle(color: Colors.teal,fontSize: Dimensions.p22,fontWeight: FontWeight.w700)),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              child: Text('Schedule Notification'),
-              onPressed: () => _showScheduleDialog(),
+            if (_schedules.length > 0)
+            Expanded(
+              child: ListView.builder(
+                itemCount: _schedules.length,
+                itemBuilder: (context, index) {
+                  final schedule = _schedules[index];
+                  return ListTile(
+                    title: Text(schedule.title),
+                    subtitle: Text(schedule.time.toString()),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () => _cancelNotification(schedule.id),
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+            if (_schedules.length == 0)
+              Container(
+                color: Colors.teal[100],
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(vertical: Dimensions.p20),
+                padding: EdgeInsets.all(10),
+                child: Center(child: Text('لا يوجد أي تنبيهات مجدولة')),
+              ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                child: Text('إنشاء تنبيه',style:TextStyle(fontSize: Dimensions.p20),),
+                onPressed: () => _showScheduleDialog(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -160,107 +179,109 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Schedule Notification'),
-      content: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextFormField(
-              controller: _titleController,
-              decoration: InputDecoration(
-                labelText: 'Title',
+    return Directionality(textDirection: TextDirection.rtl,
+      child: AlertDialog(
+        title: Text('جدولة تنبيه'),
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                controller: _titleController,
+                decoration: InputDecoration(
+                  labelText: 'العنوان',
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'من فضلك أدخل عنوان التنبيه';
+                  }
+                  return null;
+                },
               ),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter a title';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 16.0),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(style: ElevatedButton.styleFrom(
-                    primary: Colors.white, ),
-                    child: Text(
-                      'Select Date',style: TextStyle(color: Colors.black),
-                    ),
+              SizedBox(height: 16.0),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(style: ElevatedButton.styleFrom(
+                      primary: Colors.white, ),
+                      child: Text(
+                        'تحديد التاريخ',style: TextStyle(color: Colors.black),
+                      ),
 
-                    onPressed: () async {
-                      final date = await showDatePicker(
-                        context: context,
-                        initialDate: _selectedDateTime,
-                        firstDate: DateTime.now(),
-                        lastDate: DateTime.now().add(Duration(days: 365)),
-                      );
-                      if (date != null) {
-                        setState(() {
-                          _selectedDateTime = DateTime(
-                            date.year,
-                            date.month,
-                            date.day,
-                            _selectedDateTime.hour,
-                            _selectedDateTime.minute,
-                          );
-                        });
-                      }
-                    },
-                  ),
-                ),
-                SizedBox(width: 8.0),
-                Expanded(
-                  child:  ElevatedButton(style: ElevatedButton.styleFrom(
-                    primary: Colors.white, ),
-                    child: Text(
-                      'Select Time',style: TextStyle(color: Colors.black),
+                      onPressed: () async {
+                        final date = await showDatePicker(
+                          context: context,
+                          initialDate: _selectedDateTime,
+                          firstDate: DateTime.now(),
+                          lastDate: DateTime.now().add(Duration(days: 365)),
+                        );
+                        if (date != null) {
+                          setState(() {
+                            _selectedDateTime = DateTime(
+                              date.year,
+                              date.month,
+                              date.day,
+                              _selectedDateTime.hour,
+                              _selectedDateTime.minute,
+                            );
+                          });
+                        }
+                      },
                     ),
-                    onPressed: () async {
-                      final time = await showTimePicker(
-                        context: context,
-                        initialTime: TimeOfDay.fromDateTime(_selectedDateTime),
-                      );
-                      if (time != null) {
-                        setState(() {
-                          _selectedDateTime = DateTime(
-                            _selectedDateTime.year,
-                            _selectedDateTime.month,
-                            _selectedDateTime.day,
-                            time.hour,
-                            time.minute,
-                          );
-                        });
-                      }
-                    },
                   ),
-                ),
-              ],
-            ),
-          ],
+                  SizedBox(width: 8.0),
+                  Expanded(
+                    child:  ElevatedButton(style: ElevatedButton.styleFrom(
+                      primary: Colors.white, ),
+                      child: Text(
+                        'تحديد الوقت',style: TextStyle(color: Colors.black),
+                      ),
+                      onPressed: () async {
+                        final time = await showTimePicker(
+                          context: context,
+                          initialTime: TimeOfDay.fromDateTime(_selectedDateTime),
+                        );
+                        if (time != null) {
+                          setState(() {
+                            _selectedDateTime = DateTime(
+                              _selectedDateTime.year,
+                              _selectedDateTime.month,
+                              _selectedDateTime.day,
+                              time.hour,
+                              time.minute,
+                            );
+                          });
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
+        actions: [
+          TextButton(
+            child: Text('إلغاء'),
+            onPressed: () => Navigator.pop(context),
+          ),
+          ElevatedButton(style: ElevatedButton.styleFrom(
+            primary: Colors.white, ),
+
+            child: Text('إنشاء',style: TextStyle(color: Colors.black),),
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                final result = ScheduleResult(
+                  title: _titleController.text,
+                  time: _selectedDateTime,
+                );
+                Navigator.pop(context, result);
+              }
+            },
+          ),
+        ],
       ),
-      actions: [
-        TextButton(
-          child: Text('Cancel'),
-          onPressed: () => Navigator.pop(context),
-        ),
-        ElevatedButton(style: ElevatedButton.styleFrom(
-          primary: Colors.white, ),
-
-          child: Text('Schedule',style: TextStyle(color: Colors.black),),
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              final result = ScheduleResult(
-                title: _titleController.text,
-                time: _selectedDateTime,
-              );
-              Navigator.pop(context, result);
-            }
-          },
-        ),
-      ],
     );
   }
 }

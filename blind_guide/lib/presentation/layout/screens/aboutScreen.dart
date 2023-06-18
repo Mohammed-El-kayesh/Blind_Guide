@@ -1,3 +1,4 @@
+import 'package:blind_guide/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -14,7 +15,7 @@ class _AboutUSState extends State<AboutUS> {
       'الصفحة الاولى تقوم بالتعرف على الاشياء لتجنب العوائق\n'
       'الصفحة الثانية تتعرف على النصوص و تقرائها\n'
       'الصفحة الثالثة تتعرف على الالوان \n'
-      'الصفحة الأخيرة لاجراء المكالمات لطلب المساعدة حيث يقوم مساعد المكقوق باضافة خمس جهات اتصال فقط الى الصفحة ليستخدمها الشخص المكفوف ';
+      'الصفحة الأخيرة لاجراء المكالمات لطلب المساعدة حيث يقوم مساعد المكفوف باضافة خمس جهات اتصال فقط الى الصفحة ليستخدمها الشخص المكفوف ';
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
 
@@ -29,27 +30,39 @@ class _AboutUSState extends State<AboutUS> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('About Us'),),
       body:
-      Column(
+      SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(Dimensions.p10),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  IconButton(onPressed: () {
+                    Navigator.of(context).pop();
+                  }, icon: Icon(Icons.keyboard_arrow_right,size: 30,),color: Colors.teal[600],),
+                  Text("عن التطبيق",style: TextStyle(color: Colors.teal,fontSize: Dimensions.p22,fontWeight: FontWeight.w700)),
+                ],
+              ),
 
-        children: [
 
-          Text(text, textDirection: TextDirection.rtl,),
-          SizedBox(
-            height: 50,
+              Text(text, textDirection: TextDirection.rtl,style: TextStyle(fontSize: Dimensions.p20),),
+              SizedBox(
+                height: 50,
+              ),
+          ElevatedButton.icon(
+            onPressed: () {
+              playVoiceNote(text);
+
+            },
+            icon: Icon(Icons.mic),
+            label: Text('الاستماع للنص',style: TextStyle(fontSize: Dimensions.p20),),
           ),
-      ElevatedButton.icon(
-        onPressed: () {
-          playVoiceNote(text);
-
-        },
-        icon: Icon(Icons.mic),
-        label: Text('Listen'),
-      ),
 
 
-        ],
+            ],
+          ),
+        ),
       ),
     );
   }
