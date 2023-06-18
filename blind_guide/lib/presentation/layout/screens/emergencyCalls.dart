@@ -25,7 +25,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
   }
 
   Future<void> screenTitle() async {
-    await flutterTts.speak('شاشة مكالمات الطواري');
+    await flutterTts.speak('مكالمات الطواري');
   }
 
   void speakContacts() {

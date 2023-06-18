@@ -72,7 +72,7 @@ class _ColorDetectionScreenState extends State<ColorDetectionScreen> {
 /////sound////
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
-  final String text = 'هذه الصفحة للتعرف على الألوان';
+  final String text = 'التعرف على الألوان';
 
   initCamera() {
     cameraController = CameraController(cameras![0], ResolutionPreset.max);

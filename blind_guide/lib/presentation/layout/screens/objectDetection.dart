@@ -26,7 +26,7 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
 /////sound////
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
-  final String text = 'هذه الصفحة للتعرف على نوع الأشياء و تجنب العوائق';
+  final String text = 'التعرف على الأشياء';
 
   initCamera() {
     cameraController = CameraController(cameras![0], ResolutionPreset.max);

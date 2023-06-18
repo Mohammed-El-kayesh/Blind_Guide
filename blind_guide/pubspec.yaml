@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.16.1 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -43,18 +43,18 @@ dependencies:
   flutter_tts:
   flutter_tesseract_ocr: ^0.4.20
   google_ml_vision: ^0.0.8
-  audioplayers: ^3.0.1
+  audioplayers:
   just_audio: ^0.9.9
   contacts_service: ^0.6.3
-  url_launcher: ^6.1.10
+  url_launcher:
   flutter_phone_direct_caller: ^2.1.1
   collection:
   sqflite: ^2.0.0+3
   path: ^1.8.0
   firebase_database:
   firebase_core:
-  speech_to_text: ^6.1.1
-  fluttercontactpicker: ^4.7.0
+  speech_to_text:
+  fluttercontactpicker:
   flutter_email_sender: ^5.2.0
   smooth_page_indicator:
   google_fonts:

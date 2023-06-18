@@ -14,7 +14,7 @@ class Constants{
 
  static const String checkInternetConnection_STR='Please check internet connection ';
  static const String emergencyCalls_STR='مكالمات الطوارئ';
- static const String textRecognition_STR='التعرف على النصوص';
+ static const String textRecognition_STR='قراءة النص';
  static const String colorDetection_STR='التعرف على الالوان';
  static const String objectDetection_STR="التعرف على الاشياء";
  static const String WelcomScreen_STR='أهلا';
@@ -24,9 +24,9 @@ class Constants{
  static const String colorDetectionLable_STR='assets/images/labels.txt';
 
 
- static const String ObjectDetectionInitialText_STR = 'تعرف على نوع الأشياء و تجنب العوائق';
- static const String TextRecognitionInitialText_STR = 'اضغط على الشاشة لللتعرف على النص';
- static const String EmergencyCallInitialText_STR = 'شاشة مكالمات الطوارئ';
+ static const String ObjectDetectionInitialText_STR = 'اضغط على الشاشة للتعرف على الأشياء';
+ static const String TextRecognitionInitialText_STR = 'اضغط على الشاشة لقراءة النص';
+ static const String EmergencyCallInitialText_STR = ' مكالمات الطوارئ';
 }
 class Dimensions{
  static double p2_5 = 100.h/(100.h/2.5);

@@ -104,7 +104,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
       drawer: Drawer(
         backgroundColor: Colors.teal,
-        width: Dimensions.p270,
+        // width: Dimensions.p270,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [

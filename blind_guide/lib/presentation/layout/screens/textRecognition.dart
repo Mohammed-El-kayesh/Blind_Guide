@@ -22,7 +22,7 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
 /////sound////
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
-  final String text = 'هذه الصفحة لللتعرف على النصوص و قراءتها';
+  final String text = 'قراءة النص';
   final FlutterTts flutterTtsReadText = FlutterTts();
   final AudioPlayer audioPPlayerReadText = AudioPlayer();
 

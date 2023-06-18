@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui';
-
 TextStyle SafeGoogleFont(
     String fontFamily, {
       TextStyle? textStyle,

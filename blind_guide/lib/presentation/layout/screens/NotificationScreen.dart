@@ -111,22 +111,22 @@ class _NotificationScreenState extends State<NotificationScreen> {
               ),
             ),
             if (_schedules.length > 0)
-            Expanded(
-              child: ListView.builder(
-                itemCount: _schedules.length,
-                itemBuilder: (context, index) {
-                  final schedule = _schedules[index];
-                  return ListTile(
-                    title: Text(schedule.title),
-                    subtitle: Text(schedule.time.toString()),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: () => _cancelNotification(schedule.id),
-                    ),
-                  );
-                },
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _schedules.length,
+                  itemBuilder: (context, index) {
+                    final schedule = _schedules[index];
+                    return ListTile(
+                      title: Text(schedule.title),
+                      subtitle: Text(schedule.time.toString()),
+                      trailing: IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () => _cancelNotification(schedule.id),
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
             if (_schedules.length == 0)
               Container(
                 color: Colors.teal[100],
@@ -181,7 +181,7 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
   Widget build(BuildContext context) {
     return Directionality(textDirection: TextDirection.rtl,
       child: AlertDialog(
-        title: Text('جدولة تنبيه'),
+        title: Text('جدولة تنبيه',style: TextStyle(color: Colors.teal),),
         content: Form(
           key: _formKey,
           child: Column(
@@ -206,7 +206,7 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
                     child: ElevatedButton(style: ElevatedButton.styleFrom(
                       primary: Colors.white, ),
                       child: Text(
-                        'تحديد التاريخ',style: TextStyle(color: Colors.black),
+                        'تحديد التاريخ',style: TextStyle(color: Colors.teal),
                       ),
 
                       onPressed: () async {
@@ -235,7 +235,7 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
                     child:  ElevatedButton(style: ElevatedButton.styleFrom(
                       primary: Colors.white, ),
                       child: Text(
-                        'تحديد الوقت',style: TextStyle(color: Colors.black),
+                        'تحديد الوقت',style: TextStyle(color: Colors.teal),
                       ),
                       onPressed: () async {
                         final time = await showTimePicker(
@@ -263,13 +263,13 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
         ),
         actions: [
           TextButton(
-            child: Text('إلغاء'),
+            child: Text('إلغاء',style: TextStyle(color: Colors.teal),),
             onPressed: () => Navigator.pop(context),
           ),
           ElevatedButton(style: ElevatedButton.styleFrom(
-            primary: Colors.white, ),
+            primary: Colors.teal, ),
 
-            child: Text('إنشاء',style: TextStyle(color: Colors.black),),
+            child: Text('إنشاء',style: TextStyle(color: Colors.white),),
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 final result = ScheduleResult(
