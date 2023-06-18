@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:blind_guide/presentation/layout/pageView.dart';
 import 'package:blind_guide/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,6 +11,8 @@ import '../../model/onBoardingModel.dart';
 import '../../share/sharedpreference.dart';
 import '../../utils/colors.dart';
 import '../../utils/font.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+
 
 class OnBoarding extends StatefulWidget {
   @override
@@ -19,26 +22,33 @@ class OnBoarding extends StatefulWidget {
 class _OnBoardingState extends State<OnBoarding> {
   List<OnBoarding_model> onBoarding = [
     OnBoarding_model(
-        body: 'We are here to help you interact normally',
-        title: '',
+        body: ' نحن هنا من اجلك !',
+        title: 'اهلا بك فى مرشد المكفوفين',
         image: 'assets/images/blind-girl-sitting-and-reading-book.png'),
-    OnBoarding_model(
-        body: 'Our app detect , recognize and identify \nobjects to you  ',
-        title: 'See everything around you',
+    OnBoarding_model (
+        body: 'سيساعدك هذا التطبيق على اكتشاف والتعرف  \nعلى كل الاشياء حولك',
+        title: 'شاهد كل شئ حولك',
         image: 'assets/images/three-quarter-view-of-blind-girl.png'),
     OnBoarding_model(
-        body:
-            'With text recognition , our app converts your \nbooks  text into audio ',
-        title: 'Read your favourite books',
+        body: ' باستخدام خاصية التعرف على النصوص ,  \n سيساعدك تطبييقنا على تحويل نصوص الكتب الى صوت ',
+        title: 'اقرا كتبك المفضلة',
         image: 'assets/images/blind-girl-sitting-on-sofa-and-reading-book.png'),
     OnBoarding_model(
-        body:
-            'By touching the home twice you can know your location and where to go',
-        title: 'Know your location and your route',
+        body: 'احفظ عِدة ارقام للطوارئ ',
+        title: 'نوفر مكالمات الطوارئ',
         image: 'assets/images/blind-girl-walking.png'),
   ];
   @override
   //bool islast = false;
+  final FlutterTts flutterTts = FlutterTts();
+  final AudioPlayer audioPlayer = AudioPlayer();
+  Future<void> playVoiceNote() async {
+    await flutterTts.setLanguage('ar');
+    await flutterTts.setPitch(1);
+    await flutterTts.speak(onBoarding[index].title);
+
+  }
+
   int index = 0;
   bool flag = true;
   CountDownController countDownController = CountDownController();
@@ -56,22 +66,24 @@ class _OnBoardingState extends State<OnBoarding> {
       }
       countDownController.restart();
     }
+    playVoiceNote();
   }
 
   void submit(context) async {
-    await CachHelper.setBoolData(
-      key: Constants.isOnBoarding,
-      value: true,
-    );
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-      return PageViewScreen();
-    }));
-    countDownController.restart();
+    // await CachHelper.setBoolData(
+    //   key: Constants.isOnBoarding,
+    //   value: true,
+    // );
+    // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+    //   return PageViewScreen();
+    // }));
+    // countDownController.restart();
   }
 
   @override
   void initState() {
     // countDownController.start();
+    playVoiceNote();
     super.initState();
   }
 
@@ -197,52 +209,8 @@ class _OnBoardingState extends State<OnBoarding> {
                     Container(
                       // welcometoblindguide7B3 (7:2041)
                       margin: EdgeInsets.fromLTRB(0, 0, 1, 6),
-                      child: index == 0
-                          ? RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(
-                                style: SafeGoogleFont(
-                                  'Oxygen',
-                                  fontSize: Dimensions.p20,
-                                  fontWeight: FontWeight.w300,
-                                  color: Color(0xff000000),
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: 'Welcome to',
-                                    style: SafeGoogleFont(
-                                      'Segoe UI',
-                                      fontSize: Dimensions.p20,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xff000000),
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: ' ',
-                                  ),
-                                  TextSpan(
-                                    text: 'Blind',
-                                    style: SafeGoogleFont(
-                                      'Oxygen',
-                                      fontSize: Dimensions.p20,
-                                      fontWeight: FontWeight.w700,
-                                      color: Color(0xff19755f),
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: 'Guide',
-                                    style: SafeGoogleFont(
-                                      'Oxygen',
-                                      fontSize: Dimensions.p20,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xff000000),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          : Text(
-                              'See everything around you',
+                      child: Text(
+                        onBoarding[index].title,
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'Segoe UI',
@@ -342,9 +310,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         }
                       },
                     ),
-                    SizedBox(
-                      height: Dimensions.p20,
-                    ),
+
                   ],
                 ),
               ),

@@ -23,11 +23,8 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
   final String text = 'هذه الصفحة لللتعرف على النصوص و قراءتها';
-
   final FlutterTts flutterTtsReadText = FlutterTts();
   final AudioPlayer audioPPlayerReadText = AudioPlayer();
-
-
 
   @override
   void initState() {
@@ -49,19 +46,12 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
     });
   }
 
-  @override
-  void dispose() {
-    _cameraController.dispose();
-    _recognizer.close();
-    isCamInitialize = false;
-    super.dispose();
-  }
+
   Future<void> playVoiceNote() async {
     await flutterTts.setLanguage('ar');
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
   }
-
 
   Future<void> playScanText() async {
     await flutterTtsReadText.setLanguage('ar');
@@ -77,12 +67,19 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
       _recognizedText = visionText.text;
     });
   }
+  @override
+  void dispose() {
+    _cameraController.dispose();
+    _recognizer.close();
+    isCamInitialize = false;
 
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Constants.textRecognition_STR),
+        title: const Text(Constants.textRecognition_STR),
       ),
       body: isCamInitialize ? GestureDetector(
         onTap: (){_scanText();

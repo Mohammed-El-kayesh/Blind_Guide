@@ -72,7 +72,7 @@ class _ColorDetectionScreenState extends State<ColorDetectionScreen> {
 /////sound////
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
-  final String text = 'هذه الصفحة للتعرف على نوع الأشياء و تجنب العوائق';
+  final String text = 'هذه الصفحة للتعرف على الألوان';
 
   initCamera() {
     cameraController = CameraController(cameras![0], ResolutionPreset.max);
@@ -121,8 +121,8 @@ class _ColorDetectionScreenState extends State<ColorDetectionScreen> {
 
   Future<dynamic> loadModel() async {
     await Tflite.loadModel(
-      model:'assets/images/model_unquant_1.tflite',
-      labels: 'assets/images/labels.txt',
+      model:Constants.colorDetection_STR,
+      labels:Constants.colorDetectionLable_STR,
     );
   }
   /////Sound////
@@ -132,6 +132,7 @@ class _ColorDetectionScreenState extends State<ColorDetectionScreen> {
     await flutterTts.speak(text);
 
   }
+
   Future<void> playobject() async {
     await flutterTts.setLanguage('ar');
     await flutterTts.setPitch(1);

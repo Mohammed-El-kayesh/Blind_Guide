@@ -61,7 +61,7 @@ dependencies:
   shared_preferences:
   circular_countdown_timer:
   flutter_local_notifications: ^10.0.0
-
+  google_cloud_translation: ^0.0.3
 
 
 

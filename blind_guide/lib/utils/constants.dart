@@ -20,6 +20,9 @@ class Constants{
  static const String WelcomScreen_STR='Welcome';
  static const String objectDetectionModel_STR='assets/model.tflite';
  static const String objectDetectionLable_STR='assets/label.txt';
+ static const String colorDetectionModel_STR='assets/images/model_unquant_1.tflite';
+ static const String colorDetectionLable_STR='assets/images/labels.txt';
+
 
  static const String ObjectDetectionInitialText_STR = 'تعرف على نوع الأشياء و تجنب العوائق';
  static const String TextRecognitionInitialText_STR = 'اضغط على الشاشة لللتعرف على النص';
