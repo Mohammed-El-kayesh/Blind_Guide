@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -70,14 +71,14 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   void submit(context) async {
-    await CachHelper.setBoolData(
-      key: Constants.isOnBoarding,
-      value: true,
-    );
+    // await CachHelper.setBoolData(
+    //   key: Constants.isOnBoarding,
+    //   value: true,
+    // );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
       return Directionality(textDirection: TextDirection.rtl,child: PageViewScreen());
     }));
-    countDownController.restart();
+   // countDownController.restart();
   }
 
   @override
@@ -168,10 +169,9 @@ class _OnBoardingState extends State<OnBoarding> {
                       autoStart: true,
                       onComplete: () {
                         if (index == onBoarding.length - 1) {
-                          submit(context);
+                          Timer(const Duration(seconds: 5),()=> submit(context));
                         } else {
-                          incIndex();
-                          setState(() {});
+                          setState(() {incIndex();});
                         }
                       },
                       // timeFormatterFunction:
@@ -199,8 +199,8 @@ class _OnBoardingState extends State<OnBoarding> {
                       // blindgirlsittingandreadingbook (6:2036)
                       margin: EdgeInsets.fromLTRB(
                           Dimensions.p60, 0, 0, Dimensions.p65),
-                      width: 220, // Dimensions.p220,
-                      height: 320, //Dimensions.p320,
+                      width:  Dimensions.p220,
+                      height: Dimensions.p320,
                       child: Image.asset(
                         onBoarding[index].image,
                         fit: BoxFit.contain,
@@ -240,8 +240,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     ///indecator
                     Container(
                       // autogroupjmemTwB (UqpbbFW4Ypg7neKA1ejMEm)
-                      margin: EdgeInsets.fromLTRB(
-                          Dimensions.p80, 0, Dimensions.p100, Dimensions.p35),
+                      margin: EdgeInsets.fromLTRB(Dimensions.p70, 0, Dimensions.p90, Dimensions.p35),
                       width: double.infinity,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -303,7 +302,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         ),
                       ),
                       onTap: () {
-                        if (index == onBoarding.length - 1) {
+                        if (index == onBoarding.length ) {
                           submit(context);
                         } else {
                           incIndex();
