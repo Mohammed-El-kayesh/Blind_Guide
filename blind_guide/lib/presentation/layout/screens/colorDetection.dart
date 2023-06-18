@@ -121,8 +121,8 @@ class _ColorDetectionScreenState extends State<ColorDetectionScreen> {
 
   Future<dynamic> loadModel() async {
     await Tflite.loadModel(
-      model:Constants.colorDetection_STR,
-      labels:Constants.colorDetectionLable_STR,
+      model:"assets/images/model_unquant_1.tflite",
+      labels:"assets/images/labels.txt",
     );
   }
   /////Sound////

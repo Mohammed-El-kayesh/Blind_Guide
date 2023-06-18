@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 title: Constants.appName,
                 theme: ThemeData(primarySwatch: AppColors.mainColor),
-                home: isOnBoarding==null? OnBoarding(): PageViewScreen(),
+                home: isOnBoarding==null? Directionality(textDirection: TextDirection.rtl,child: OnBoarding()): Directionality(textDirection: TextDirection.rtl,child: PageViewScreen(),),
             );
           }
       );

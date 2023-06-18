@@ -65,6 +65,7 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
     final visionText = await _recognizer.processImage(visionImage);
     setState(() {
       _recognizedText = visionText.text;
+      print("*********************/**************" + _recognizedText.toString());
     });
   }
   @override

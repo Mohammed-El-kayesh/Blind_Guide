@@ -75,7 +75,7 @@ class _OnBoardingState extends State<OnBoarding> {
       value: true,
     );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-      return PageViewScreen();
+      return Directionality(textDirection: TextDirection.rtl,child: PageViewScreen());
     }));
     countDownController.restart();
   }
@@ -241,7 +241,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     Container(
                       // autogroupjmemTwB (UqpbbFW4Ypg7neKA1ejMEm)
                       margin: EdgeInsets.fromLTRB(
-                          Dimensions.p80, 0, Dimensions.p80, Dimensions.p35),
+                          Dimensions.p80, 0, Dimensions.p100, Dimensions.p35),
                       width: double.infinity,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -290,7 +290,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         ),
                         child: Center(
                           child: Text(
-                            index == 0 ? 'Start' : "Next",
+                            index == 0 ? 'البدء' : "التالي",
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'Oxygen',
