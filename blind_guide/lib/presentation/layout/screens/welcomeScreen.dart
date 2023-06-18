@@ -23,7 +23,7 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 bool isTtsStop = true;
-
+double? printDist;
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   final FlutterTts flutterTts = FlutterTts();
@@ -38,14 +38,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     super.initState();
 
     Future<void> playVoiceNote(double event) async {
+      printDist = event;
       isComplete = true;
       await flutterTts.setLanguage('ar');
       await flutterTts.setPitch(1);
 
       if (event < 1) {
-        isTtsStop = false;
+        setState(() {
+          isTtsStop = false;
+        });
         await flutterTts.speak("يوجد عائق على بعد اقل من متر  ").then((value) => isTtsStop = true);
-      } else if (event > 1 && event < 2) {
+      } else if (event > 1 && event <= 2) {
         setState(() {
           isTtsStop = false;
         });
@@ -53,8 +56,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           await Future.delayed(Duration(seconds: 4)).then((value) => isTtsStop = true);
 
         });
-      } else if (event > 2 && event < 3) {
-          isTtsStop = false;
+      } else if (event > 2 && event <= 3) {
+          setState(() {
+            isTtsStop = false;
+          });
         await flutterTts.speak("يوجد عائق على بعد ثلاثة امتار  ").then((value) => isTtsStop = true);
       } else {
         setState(() {
@@ -246,8 +251,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   letterSpacing: 0.72,
                 ),
               ),
-              Text(
-                '2 متر',
+              if(printDist != null)
+                Text(
+                '${printDist!} متر ',
                 style: SafeGoogleFont(
                   'Oxygen',
                   fontSize: Dimensions.p25,
@@ -256,6 +262,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   color: Color(0xff19755f),
                 ),
               ),
+              if(printDist == null)
+                Text(
+                  '... متر ',
+                  style: SafeGoogleFont(
+                    'Oxygen',
+                    fontSize: Dimensions.p25,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0.72,
+                    color: Color(0xff19755f),
+                  ),
+                ),
+
             ],
           ),
 

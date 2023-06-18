@@ -53,7 +53,7 @@ dependencies:
   path: ^1.8.0
   firebase_database:
   firebase_core:
-  speech_to_text:
+  speech_to_text: ^6.1.1
   fluttercontactpicker:
   flutter_email_sender: ^5.2.0
   smooth_page_indicator:
