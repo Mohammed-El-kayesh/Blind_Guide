@@ -79,9 +79,7 @@ class _TextRecognitionScreenState extends State<TextRecognitionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(Constants.textRecognition_STR),
-      ),
+
       body: isCamInitialize ? GestureDetector(
         onTap: (){_scanText();
         playScanText();

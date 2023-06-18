@@ -106,9 +106,6 @@ class _ObjectDetectionScreenState extends State<ObjectDetectionScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Constants.objectDetection_STR),
-      ),
       body: GestureDetector(
         onTap:playobject ,
         child: Container(

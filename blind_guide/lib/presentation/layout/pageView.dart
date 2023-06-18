@@ -5,8 +5,10 @@ import 'package:blind_guide/presentation/layout/screens/textRecognition.dart';
 import 'package:blind_guide/presentation/layout/screens/welcomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../utils/constants.dart';
+import '../../utils/font.dart';
 
 
 class PageViewScreen extends StatefulWidget {
@@ -27,6 +29,11 @@ class _PageViewScreenState extends State<PageViewScreen> {
     Constants.emergencyCalls_STR,
   ];
 
+  final List<String> pageString = [
+    Constants.objectDetection_STR,
+    Constants.colorDetection_STR,
+    Constants.textRecognition_STR,
+  ];
   final List<Widget> screensList =[
     const WelcomeScreen(),
     const ObjectDetectionScreen(),
@@ -34,7 +41,6 @@ class _PageViewScreenState extends State<PageViewScreen> {
     const TextRecognitionScreen(),
     EmergencyScreen(),
   ];
-
 
   void initPageView() {
     pageController = PageController(
@@ -72,15 +78,91 @@ class _PageViewScreenState extends State<PageViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text(titles[currentPageIndex]),
-        // ),
-        body: PageView(
-          controller: pageController,
-          onPageChanged: (int index){
-            changePageViewIndex(index);
-          },
-          children: screensList,)
+        body: Container(
+          child: Stack(
+            children: [
+              PageView(
+                controller: pageController,
+                onPageChanged: (int index){
+                  changePageViewIndex(index);
+                },
+                children: screensList,),
+
+                currentPageIndex==0 || currentPageIndex == screensList.length -1 ?
+                 Container() :  Container(
+                  margin: EdgeInsets.only(bottom: Dimensions.p30),
+                  child: Align(child:
+                  Container(
+                    width: 86.w,
+                    height: Dimensions.p45,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.p10),
+                      color:const Color(0xFFCFEEE7),
+                    ),
+                    child: Stack(
+                      children: [
+                       Container(
+                         height: Dimensions.p40,
+                         child:
+                         Directionality(
+                           textDirection: TextDirection.rtl,
+                           child:Row(
+                             crossAxisAlignment: CrossAxisAlignment.center,
+                             mainAxisAlignment: MainAxisAlignment.center,
+                             children:
+                             List.generate(3,
+                                   (index) {
+                             if( index+1==currentPageIndex)
+                             return  Container(
+                                 width: 28.w,
+                                 height: Dimensions.p40,
+                                 margin: EdgeInsets.only(top: Dimensions.p3),
+                                 decoration: BoxDecoration(
+                                   borderRadius: BorderRadius.circular(Dimensions.p10),
+                                   color:const Color(0xFF1A765F),
+                                 ),
+                                 child: Center(
+                                   child: Text(
+                                     titles[currentPageIndex]
+                                     , style: SafeGoogleFont(
+                                     'Segoe UI',
+                                     fontSize: Dimensions.p13,
+                                     fontWeight: FontWeight.w600,
+                                     color: Color(0xffffffff),
+                                   ),
+                                   ),
+                                 ),
+                               );
+                             return  Container(
+                                 width: 28.w,
+                                 child: Text(
+                                   pageString[index]
+                                   , style: SafeGoogleFont(
+                                   'Segoe UI',
+                                   fontSize: Dimensions.p13,
+                                   fontWeight: FontWeight.w600,
+                                   color: Color(0xff000000),
+
+                                 ),
+                                   //  textAlign: TextAlign.center,
+                                 ),
+                               );
+                             }),
+                           ),
+                         ),
+
+                       ),
+                        // Container(color: Colors.red,width:100,height: 100,),
+                      ],
+                    ),
+                  ),
+                    alignment:Alignment.bottomCenter,
+                  ),
+                ),
+
+            ],
+          ),
+        )
     );
   }
 

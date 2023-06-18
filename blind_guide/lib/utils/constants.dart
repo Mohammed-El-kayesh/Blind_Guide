@@ -14,10 +14,10 @@ class Constants{
 
  static const String checkInternetConnection_STR='Please check internet connection ';
  static const String emergencyCalls_STR='مكالمات الطوارئ';
- static const String textRecognition_STR='Text Recognition';
- static const String colorDetection_STR='Color Detection';
- static const String objectDetection_STR='Object detection';
- static const String WelcomScreen_STR='Welcome';
+ static const String textRecognition_STR='التعرف على النصوص';
+ static const String colorDetection_STR='التعرف على الالوان';
+ static const String objectDetection_STR="التعرف على الاشياء";
+ static const String WelcomScreen_STR='أهلا';
  static const String objectDetectionModel_STR='assets/model.tflite';
  static const String objectDetectionLable_STR='assets/label.txt';
  static const String colorDetectionModel_STR='assets/images/model_unquant_1.tflite';
@@ -29,6 +29,8 @@ class Constants{
  static const String EmergencyCallInitialText_STR = 'شاشة مكالمات الطوارئ';
 }
 class Dimensions{
+ static double p2_5 = 100.h/(100.h/2.5);
+ static double p3 = 100.h/(100.h/3);
  static double p5 = 100.h/(100.h/5);
  static double p8 = 100.h/(100.h/8);
  static double p10 = 100.h/(100.h/10);
