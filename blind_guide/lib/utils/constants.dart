@@ -13,7 +13,7 @@ class Constants{
  static const String baseAssetImage='assets/images/';
 
  static const String checkInternetConnection_STR='Please check internet connection ';
- static const String emergencyCalls_STR='Emergency Calls';
+ static const String emergencyCalls_STR='مكالمات الطوارئ';
  static const String textRecognition_STR='Text Recognition';
  static const String colorDetection_STR='Color Detection';
  static const String objectDetection_STR='Object detection';

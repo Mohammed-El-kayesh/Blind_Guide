@@ -1,6 +1,7 @@
 import 'package:blind_guide/CallsSystem/commands.dart';
 import 'package:blind_guide/CallsSystem/speech.dart';
 import 'package:blind_guide/utils/constants.dart';
+import 'package:blind_guide/utils/font.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -52,87 +53,92 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Constants.emergencyCalls_STR),
-        actions: [
-          IconButton(
-            onPressed: () async {
-              if (contacts.length < 5) {
-                final PhoneContact contact =
-                    await FlutterContactPicker.pickPhoneContact();
-                _phoneContact = contact;
-                insertToDatabase(
-                    name: _phoneContact!.fullName ?? '---',
-                    number: _phoneContact!.phoneNumber!.number ?? '*/*/*/');
-              } else {
-                await flutterTts.speak(
-                    'لقد وَصَلْتا للحدى الأقصى من جهات الاتصال، من فضلك احذف واحدة لإضافة جهت اتصال جديدة');
-              }
-            },
-            icon: Icon(Icons.contacts),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          if (contacts.isNotEmpty)
-            Expanded(
-              child: InkWell(
-                child: ListView.separated(
-                    itemBuilder: (context, index) => buildContactList(
-                          context,
-                          name: contacts[index]['name'],
-                          phoneNumber: contacts[index]['number'],
-                          id: index + 1,
-                          contactID: contacts[index]['id'],
-                        ),
-                    separatorBuilder: (context, index) => Container(
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 20,
-                          ),
-                          height: 1,
-                          width: MediaQuery.of(context).size.width,
-                          color: Colors.grey[300],
-                        ),
-                    itemCount: contacts.length),
-                onLongPress: () => toggleRecording(context),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(vertical: Dimensions.p20),
+              child: Center(
+                child: Text(
+                  Constants.emergencyCalls_STR,
+                  style: SafeGoogleFont('Oxygen',
+                      fontSize: Dimensions.p35,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.22,
+                      color: Colors.teal),
+                ),
               ),
             ),
-          if (contacts.isEmpty)
-            Container(
-              width: MediaQuery.of(context).size.width,
-              color: Colors.amber[300],
-              margin: const EdgeInsets.symmetric(
-                vertical: 20,
+            if (contacts.isNotEmpty)
+              Expanded(
+                child: InkWell(
+                  child: ListView.separated(
+                      itemBuilder: (context, index) => buildContactList(
+                            context,
+                            name: contacts[index]['name'],
+                            phoneNumber: contacts[index]['number'],
+                            id: index + 1,
+                            contactID: contacts[index]['id'],
+                          ),
+                      separatorBuilder: (context, index) => Container(
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 20,
+                            ),
+                            height: 1,
+                            width: MediaQuery.of(context).size.width,
+                            color: Colors.grey[300],
+                          ),
+                      itemCount: contacts.length),
+                  onLongPress: () => toggleRecording(context),
+                ),
               ),
-              padding: const EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.error_outline,
-                    size: 35,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'No Contacts Yet! Add Some To Call',
-                    style: TextStyle(
-                      fontSize: 18,
+            if (contacts.isEmpty)
+              Column(
+                children: [
+                  Container(
+                      child: Center(
+                          child: Image.asset(
+                    "assets/images/no-user.JPG",
+                    width: Dimensions.p320,
+                  )),
+                    margin: EdgeInsets.symmetric(
+                      vertical: Dimensions.p70,
                     ),
                   ),
+                  Text(
+                    "لا جهات اتصال! أضف واحدة",
+                    style: SafeGoogleFont('Oxygen',
+                        fontSize: Dimensions.p20,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.22,
+                        color: Colors.teal),
+                  ),
+
                 ],
               ),
-            ),
-        ],
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          if (contacts.length < 5) {
+            final PhoneContact contact =
+                await FlutterContactPicker.pickPhoneContact();
+            _phoneContact = contact;
+            insertToDatabase(
+                name: _phoneContact!.fullName ?? '---',
+                number: _phoneContact!.phoneNumber!.number ?? '*/*/*/');
+          } else {
+            await flutterTts.speak(
+                'لقد وَصَلْتا للحدى الأقصى من جهات الاتصال، من فضلك احذف واحدة لإضافة جهت اتصال جديدة');
+          }
+        },
+        child: Icon(Icons.contacts),
       ),
     );
   }
@@ -144,11 +150,13 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
   Future toggleRecording(context) =>
       Speech.toggleRecording(onResult: (String text) {
         textSample = text;
+        print("######" + textSample.toString());
       }, onListening: (bool isListening) {
         this.isListening = isListening;
         if (!isListening) {
           Future.delayed(const Duration(milliseconds: 1000), () {
             Utils.scanVoicedText(textSample, context);
+            print("######" + textSample.toString());
           });
         }
       });
@@ -179,8 +187,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
           clearLists();
           value.forEach((element) {
             contacts.add(element);
-            setState(() {
-            });
+            setState(() {});
           });
         });
       },
@@ -232,8 +239,17 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: Colors.teal,
-          foregroundColor: Colors.white,
-          child: Text(id.toString()),
+          radius: 30,
+          child: CircleAvatar(
+            backgroundColor: Colors.white,
+
+            // foregroundColor: Colors.white,
+            // child: Text(id.toString()),
+            radius: 27,
+            child: Image.asset(
+              "assets/images/user.png",
+            ),
+          ),
         ),
         title: Text(
           name,
@@ -244,6 +260,8 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
           phoneNumber,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
+          textDirection: TextDirection.ltr,
+          textAlign: TextAlign.right,
         ),
         trailing: IconButton(
           onPressed: () {
